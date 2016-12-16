@@ -97,7 +97,7 @@ enum WeatherSymbol{
         }
     }
     
-    func imageRepresentation() -> UIImage{
+    func imageRepresentation() -> UIImage {
         // The gigantic switch is there to allow maximum customizability to pick images for weather. And to allow reuse of images where relevant.
         switch self {
         case .ClearSky(.winter): return #imageLiteral(resourceName: "vinter_klart")
