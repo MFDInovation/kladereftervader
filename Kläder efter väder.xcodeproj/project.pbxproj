@@ -1,0 +1,396 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA3937521DF16D6D0064B896 /* WeatherAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3937511DF16D6D0064B896 /* WeatherAnimation.swift */; };
+		DA4A90AF1DC733E500636ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90AE1DC733E500636ED1 /* AppDelegate.swift */; };
+		DA4A90B11DC733E500636ED1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90B01DC733E500636ED1 /* MainViewController.swift */; };
+		DA4A90B41DC733E500636ED1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4A90B21DC733E500636ED1 /* Main.storyboard */; };
+		DA4A90B61DC733E500636ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4A90B51DC733E500636ED1 /* Assets.xcassets */; };
+		DA4A90B91DC733E500636ED1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4A90B71DC733E500636ED1 /* LaunchScreen.storyboard */; };
+		DA4A90C11DC7344D00636ED1 /* SMHIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90C01DC7344D00636ED1 /* SMHIAPI.swift */; };
+		DA4A90C31DC7348A00636ED1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90C21DC7348A00636ED1 /* Networking.swift */; };
+		DA4A90C51DC736FA00636ED1 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90C41DC736FA00636ED1 /* GPS.swift */; };
+		DA4A90C71DC7451F00636ED1 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90C61DC7451F00636ED1 /* CommonExtensions.swift */; };
+		DA5717241DDAFEEF009C8688 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5717231DDAFEEF009C8688 /* ImageViewController.swift */; };
+		DA5717261DDB031D009C8688 /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5717251DDB031D009C8688 /* ImagePageViewController.swift */; };
+		DA715BDC1E02E428003D83B5 /* ThunderAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA715BDB1E02E427003D83B5 /* ThunderAnimation.swift */; };
+		DA715BDE1E02E47A003D83B5 /* ParticleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA715BDD1E02E47A003D83B5 /* ParticleAnimation.swift */; };
+		DA89B1C91DEDA81500726982 /* WeatherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B1C81DEDA81500726982 /* WeatherImage.swift */; };
+		DABDD7501DC75862002F5724 /* ClothesItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDD74F1DC75862002F5724 /* ClothesItemTableViewCell.swift */; };
+		DABDD7521DC75872002F5724 /* ClothesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDD7511DC75872002F5724 /* ClothesTableViewController.swift */; };
+		DABDD7551DC7956E002F5724 /* Clothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDD7541DC7956E002F5724 /* Clothing.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DA3937511DF16D6D0064B896 /* WeatherAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAnimation.swift; sourceTree = "<group>"; };
+		DA4A90AB1DC733E500636ED1 /* Kläder efter väder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kläder efter väder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA4A90AE1DC733E500636ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA4A90B01DC733E500636ED1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DA4A90B31DC733E500636ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA4A90B51DC733E500636ED1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA4A90B81DC733E500636ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA4A90BA1DC733E500636ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA4A90C01DC7344D00636ED1 /* SMHIAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMHIAPI.swift; sourceTree = "<group>"; };
+		DA4A90C21DC7348A00636ED1 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		DA4A90C41DC736FA00636ED1 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
+		DA4A90C61DC7451F00636ED1 /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
+		DA5717231DDAFEEF009C8688 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		DA5717251DDB031D009C8688 /* ImagePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
+		DA715BDB1E02E427003D83B5 /* ThunderAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThunderAnimation.swift; sourceTree = "<group>"; };
+		DA715BDD1E02E47A003D83B5 /* ParticleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleAnimation.swift; sourceTree = "<group>"; };
+		DA89B1C81DEDA81500726982 /* WeatherImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherImage.swift; sourceTree = "<group>"; };
+		DABDD74F1DC75862002F5724 /* ClothesItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothesItemTableViewCell.swift; sourceTree = "<group>"; };
+		DABDD7511DC75872002F5724 /* ClothesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothesTableViewController.swift; sourceTree = "<group>"; };
+		DABDD7541DC7956E002F5724 /* Clothing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clothing.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA4A90A81DC733E500636ED1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA4A90A21DC733E500636ED1 = {
+			isa = PBXGroup;
+			children = (
+				DA4A90AD1DC733E500636ED1 /* Kläder efter väder */,
+				DA4A90AC1DC733E500636ED1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA4A90AC1DC733E500636ED1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA4A90AB1DC733E500636ED1 /* Kläder efter väder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA4A90AD1DC733E500636ED1 /* Kläder efter väder */ = {
+			isa = PBXGroup;
+			children = (
+				DABDD7531DC79073002F5724 /* API */,
+				DA715BE01E02E4B8003D83B5 /* ImageHandling */,
+				DA715BDF1E02E4A0003D83B5 /* Animations */,
+				DA4A90AE1DC733E500636ED1 /* AppDelegate.swift */,
+				DA4A90B21DC733E500636ED1 /* Main.storyboard */,
+				DA4A90B51DC733E500636ED1 /* Assets.xcassets */,
+				DA4A90B71DC733E500636ED1 /* LaunchScreen.storyboard */,
+				DA4A90BA1DC733E500636ED1 /* Info.plist */,
+				DA715BE11E02E531003D83B5 /* ViewControllers */,
+			);
+			path = "Kläder efter väder";
+			sourceTree = "<group>";
+		};
+		DA715BDF1E02E4A0003D83B5 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				DA3937511DF16D6D0064B896 /* WeatherAnimation.swift */,
+				DA715BDB1E02E427003D83B5 /* ThunderAnimation.swift */,
+				DA715BDD1E02E47A003D83B5 /* ParticleAnimation.swift */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		DA715BE01E02E4B8003D83B5 /* ImageHandling */ = {
+			isa = PBXGroup;
+			children = (
+				DABDD7541DC7956E002F5724 /* Clothing.swift */,
+				DA89B1C81DEDA81500726982 /* WeatherImage.swift */,
+			);
+			name = ImageHandling;
+			sourceTree = "<group>";
+		};
+		DA715BE11E02E531003D83B5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DA4A90B01DC733E500636ED1 /* MainViewController.swift */,
+				DABDD7511DC75872002F5724 /* ClothesTableViewController.swift */,
+				DABDD74F1DC75862002F5724 /* ClothesItemTableViewCell.swift */,
+				DA5717231DDAFEEF009C8688 /* ImageViewController.swift */,
+				DA5717251DDB031D009C8688 /* ImagePageViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DABDD7531DC79073002F5724 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DA4A90C01DC7344D00636ED1 /* SMHIAPI.swift */,
+				DA4A90C21DC7348A00636ED1 /* Networking.swift */,
+				DA4A90C41DC736FA00636ED1 /* GPS.swift */,
+				DA4A90C61DC7451F00636ED1 /* CommonExtensions.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA4A90AA1DC733E500636ED1 /* Kläder efter väder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA4A90BD1DC733E500636ED1 /* Build configuration list for PBXNativeTarget "Kläder efter väder" */;
+			buildPhases = (
+				DA4A90A71DC733E500636ED1 /* Sources */,
+				DA4A90A81DC733E500636ED1 /* Frameworks */,
+				DA4A90A91DC733E500636ED1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kläder efter väder";
+			productName = "Kläder efter väder";
+			productReference = DA4A90AB1DC733E500636ED1 /* Kläder efter väder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA4A90A31DC733E500636ED1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = Knowit;
+				TargetAttributes = {
+					DA4A90AA1DC733E500636ED1 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 92R23WEN26;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DA4A90A61DC733E500636ED1 /* Build configuration list for PBXProject "Kläder efter väder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA4A90A21DC733E500636ED1;
+			productRefGroup = DA4A90AC1DC733E500636ED1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA4A90AA1DC733E500636ED1 /* Kläder efter väder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA4A90A91DC733E500636ED1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA4A90B91DC733E500636ED1 /* LaunchScreen.storyboard in Resources */,
+				DA4A90B61DC733E500636ED1 /* Assets.xcassets in Resources */,
+				DA4A90B41DC733E500636ED1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA4A90A71DC733E500636ED1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DABDD7521DC75872002F5724 /* ClothesTableViewController.swift in Sources */,
+				DA715BDC1E02E428003D83B5 /* ThunderAnimation.swift in Sources */,
+				DA4A90B11DC733E500636ED1 /* MainViewController.swift in Sources */,
+				DA4A90AF1DC733E500636ED1 /* AppDelegate.swift in Sources */,
+				DA5717261DDB031D009C8688 /* ImagePageViewController.swift in Sources */,
+				DA4A90C11DC7344D00636ED1 /* SMHIAPI.swift in Sources */,
+				DA4A90C31DC7348A00636ED1 /* Networking.swift in Sources */,
+				DA715BDE1E02E47A003D83B5 /* ParticleAnimation.swift in Sources */,
+				DABDD7501DC75862002F5724 /* ClothesItemTableViewCell.swift in Sources */,
+				DA4A90C71DC7451F00636ED1 /* CommonExtensions.swift in Sources */,
+				DA89B1C91DEDA81500726982 /* WeatherImage.swift in Sources */,
+				DABDD7551DC7956E002F5724 /* Clothing.swift in Sources */,
+				DA3937521DF16D6D0064B896 /* WeatherAnimation.swift in Sources */,
+				DA5717241DDAFEEF009C8688 /* ImageViewController.swift in Sources */,
+				DA4A90C51DC736FA00636ED1 /* GPS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA4A90B21DC733E500636ED1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA4A90B31DC733E500636ED1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA4A90B71DC733E500636ED1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA4A90B81DC733E500636ED1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA4A90BB1DC733E500636ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA4A90BC1DC733E500636ED1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA4A90BE1DC733E500636ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 92R23WEN26;
+				INFOPLIST_FILE = "Kläder efter väder/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.knowit.Kla-der-efter-va-der2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA4A90BF1DC733E500636ED1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 92R23WEN26;
+				INFOPLIST_FILE = "Kläder efter väder/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.knowit.Kla-der-efter-va-der2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA4A90A61DC733E500636ED1 /* Build configuration list for PBXProject "Kläder efter väder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA4A90BB1DC733E500636ED1 /* Debug */,
+				DA4A90BC1DC733E500636ED1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA4A90BD1DC733E500636ED1 /* Build configuration list for PBXNativeTarget "Kläder efter väder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA4A90BE1DC733E500636ED1 /* Debug */,
+				DA4A90BF1DC733E500636ED1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA4A90A31DC733E500636ED1 /* Project object */;
+}

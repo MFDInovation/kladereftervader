@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image View Controller-->
+        <scene sceneID="BrG-qe-Keg">
+            <objects>
+                <viewController storyboardIdentifier="imageViewController" id="zbX-hn-bSO" customClass="ImageViewController" customModule="Kla_der_efter_va_der" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hx3-yA-gPU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ah5-LZ-pFx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EX3-MQ-66Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8V2-Im-ZD8">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8V2-Im-ZD8" firstAttribute="leading" secondItem="EX3-MQ-66Y" secondAttribute="leading" id="J3I-Ql-sE7"/>
+                            <constraint firstItem="ah5-LZ-pFx" firstAttribute="top" secondItem="8V2-Im-ZD8" secondAttribute="bottom" id="hMX-O2-viN"/>
+                            <constraint firstAttribute="trailing" secondItem="8V2-Im-ZD8" secondAttribute="trailing" id="jKB-bq-CPk"/>
+                            <constraint firstItem="8V2-Im-ZD8" firstAttribute="top" secondItem="hx3-yA-gPU" secondAttribute="bottom" id="ler-bP-Cdv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="8V2-Im-ZD8" id="WNb-w4-psE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRl-LU-ka2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-769" y="52"/>
+        </scene>
+        <!--Image Page View Controller-->
+        <scene sceneID="v59-yP-gYc">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="tXW-8z-Zax" customClass="ImagePageViewController" customModule="Kla_der_efter_va_der" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RU1-Lu-dFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-105" y="133"/>
+        </scene>
+        <!--Kläder efter väder-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Kla_der_efter_va_der" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Yu-Je-inO">
+                                <rect key="frame" x="0.0" y="20" width="414" height="773"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4Yu-Je-inO" secondAttribute="height" multiplier="357:667" id="aO7-PS-xSk"/>
+                                </constraints>
+                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-cE-taW">
+                                <rect key="frame" x="0.0" y="192" width="414" height="544"/>
+                                <connections>
+                                    <segue destination="tXW-8z-Zax" kind="embed" identifier="embedPageViewController" id="bNe-3E-bcp"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xaa-dl-sZI">
+                                <rect key="frame" x="40" y="40" width="78" height="97"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="80"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="0.47292380136986301" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="2" height="1"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XS-xD-qly">
+                                <rect key="frame" x="298" y="40" width="96" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Egna bilder"/>
+                                <connections>
+                                    <segue destination="SY8-XA-Gyu" kind="presentation" id="Xux-m9-jGe"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9oP-zS-Mbk">
+                                <rect key="frame" x="197" y="358" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMd-Ef-Pph">
+                                <rect key="frame" x="353" y="95" width="41" height="30"/>
+                                <state key="normal" title="Demo"/>
+                                <connections>
+                                    <action selector="demobuttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C7F-vw-tJo"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMy-sS-gGP">
+                                <rect key="frame" x="207" y="20" width="0.0" height="172"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="7X4-Db-U6D"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uje-OF-pjV">
+                                <rect key="frame" x="20" y="693" width="143" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Utvärdera appen"/>
+                                <connections>
+                                    <action selector="feedbackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K2Y-gV-Lmn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lla-cE-taW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="14I-aH-pGR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="lessThanOrEqual" secondItem="4Yu-Je-inO" secondAttribute="bottom" id="3PF-kY-OfS"/>
+                            <constraint firstItem="9oP-zS-Mbk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5RW-Qq-8Lr"/>
+                            <constraint firstAttribute="trailing" secondItem="Lla-cE-taW" secondAttribute="trailing" id="6nv-gv-hz6"/>
+                            <constraint firstItem="NMy-sS-gGP" firstAttribute="height" secondItem="4Yu-Je-inO" secondAttribute="height" multiplier="148:667" id="AGh-cg-nlm"/>
+                            <constraint firstItem="Lla-cE-taW" firstAttribute="top" secondItem="NMy-sS-gGP" secondAttribute="bottom" id="CDF-3A-lXY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4XS-xD-qly" secondAttribute="trailing" id="DfN-L2-osW"/>
+                            <constraint firstItem="Xaa-dl-sZI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="FTR-ky-7be"/>
+                            <constraint firstItem="NMy-sS-gGP" firstAttribute="top" secondItem="4Yu-Je-inO" secondAttribute="top" id="Gsk-8P-0Zd"/>
+                            <constraint firstItem="eMd-Ef-Pph" firstAttribute="top" secondItem="4XS-xD-qly" secondAttribute="bottom" constant="20" id="LfG-IX-4O3"/>
+                            <constraint firstItem="eMd-Ef-Pph" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="QTu-VA-xW9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Lla-cE-taW" secondAttribute="bottom" id="S7f-Y5-nXd"/>
+                            <constraint firstAttribute="trailing" secondItem="4Yu-Je-inO" secondAttribute="trailing" id="UmM-2E-Wpz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uje-OF-pjV" secondAttribute="bottom" constant="8" id="WfD-cD-I7f"/>
+                            <constraint firstItem="uje-OF-pjV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="X4w-Nw-i2A"/>
+                            <constraint firstItem="9oP-zS-Mbk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XCQ-4z-2BD"/>
+                            <constraint firstItem="Xaa-dl-sZI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="YLD-Sg-4RF"/>
+                            <constraint firstItem="4Yu-Je-inO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dWD-dH-Vg9"/>
+                            <constraint firstItem="4Yu-Je-inO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qGZ-7O-rt6"/>
+                            <constraint firstItem="4XS-xD-qly" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="wXZ-EK-oad"/>
+                            <constraint firstItem="NMy-sS-gGP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z87-6S-Sv6"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Kläder efter väder" id="peH-aW-iRv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="sxF-0J-a2X">
+                            <connections>
+                                <segue destination="SY8-XA-Gyu" kind="show" id="3Dg-ed-Qmd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="9oP-zS-Mbk" id="zLT-se-sfs"/>
+                        <outlet property="containerView" destination="Lla-cE-taW" id="Ifx-ug-2wN"/>
+                        <outlet property="imageView" destination="4Yu-Je-inO" id="hwI-Z9-a33"/>
+                        <outlet property="temperatureLabel" destination="Xaa-dl-sZI" id="8sS-PZ-bZL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743.47826086956525" y="35.869565217391305"/>
+        </scene>
+        <!--Byt bilder för detta väder-->
+        <scene sceneID="3Ul-5S-dKB">
+            <objects>
+                <tableViewController id="Bbp-Ed-pR6" customClass="ClothesTableViewController" customModule="Kla_der_efter_va_der" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZXn-mI-yfz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClothesItemTableViewCell" rowHeight="311" id="SiE-IK-u6V" customClass="ClothesItemTableViewCell" customModule="Kla_der_efter_va_der" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="311"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SiE-IK-u6V" id="p4a-3o-te4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6gW-a5-J0A">
+                                            <rect key="frame" x="24" y="53" width="366" height="233"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="500" id="0gY-zU-DJa"/>
+                                                <constraint firstAttribute="width" secondItem="6gW-a5-J0A" secondAttribute="height" multiplier="3:4" priority="950" id="ez7-Db-9Ib"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="951" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SQ-qu-vll">
+                                            <rect key="frame" x="24" y="24" width="36" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAn-w6-JbI">
+                                            <rect key="frame" x="341" y="20" width="49" height="30"/>
+                                            <state key="normal" title="Ta bort">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didPressDelete:" destination="SiE-IK-u6V" eventType="touchUpInside" id="Xz8-mV-wd4"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9SQ-qu-vll" firstAttribute="top" secondItem="p4a-3o-te4" secondAttribute="topMargin" constant="16" id="13l-ax-eyK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="6gW-a5-J0A" secondAttribute="trailing" constant="16" id="C5n-QY-WNo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="6gW-a5-J0A" secondAttribute="bottom" constant="16" id="CdK-ha-jiH"/>
+                                        <constraint firstItem="6gW-a5-J0A" firstAttribute="leading" secondItem="p4a-3o-te4" secondAttribute="leadingMargin" constant="16" id="KuM-bc-4Jd"/>
+                                        <constraint firstItem="9SQ-qu-vll" firstAttribute="leading" secondItem="p4a-3o-te4" secondAttribute="leadingMargin" constant="16" id="hrU-du-m1I"/>
+                                        <constraint firstItem="TAn-w6-JbI" firstAttribute="baseline" secondItem="9SQ-qu-vll" secondAttribute="baseline" id="qIa-ah-Zii"/>
+                                        <constraint firstItem="6gW-a5-J0A" firstAttribute="top" secondItem="9SQ-qu-vll" secondAttribute="bottom" constant="8" id="r2A-rZ-CaK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TAn-w6-JbI" secondAttribute="trailing" constant="16" id="uFq-nE-Q0U"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="aspectRatioConstraint" destination="ez7-Db-9Ib" id="4PS-h8-OzY"/>
+                                    <outlet property="clothingImageView" destination="6gW-a5-J0A" id="QA8-4H-jfv"/>
+                                    <outlet property="titleLabel" destination="9SQ-qu-vll" id="bFu-4Y-ACY"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bbp-Ed-pR6" id="RA9-MO-n7x"/>
+                            <outlet property="delegate" destination="Bbp-Ed-pR6" id="3YL-vv-1g0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Byt bilder för detta väder" id="vMa-33-HiS">
+                        <barButtonItem key="leftBarButtonItem" title="Klar" id="LAV-rq-xyN">
+                            <connections>
+                                <action selector="dismiss:" destination="Bbp-Ed-pR6" id="lyt-vV-iRJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Lägg till" id="QVh-1u-WKF">
+                            <connections>
+                                <action selector="addImageClicked:" destination="Bbp-Ed-pR6" id="As1-uL-e5m"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aix-Ed-PTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2566" y="37"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C9e-qf-G7v">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SY8-XA-Gyu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WEj-6n-qse">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bbp-Ed-pR6" kind="relationship" relationship="rootViewController" id="iud-ii-bNa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gIM-SO-0du" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1626" y="36"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xux-m9-jGe"/>
+    </inferredMetricsTieBreakers>
+</document>
