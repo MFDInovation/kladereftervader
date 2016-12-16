@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Displays clothes for the current weather and allows the user to pick their own images for the current weather.
 class ClothesTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var currentClothes = Clothing.errorGPS

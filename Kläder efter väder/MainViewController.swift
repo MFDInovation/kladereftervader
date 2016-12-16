@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// Viewcontroller responsible for the main view.
 class MainViewController: UIViewController {
     
     let smhi = SMHIAPI()
@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
     var weatherAnimation = WeatherAnimation()
     var lastLoadTime = Date.distantPast
     
+    //Function only for demo purposes
     var demoCounter = 0;
     @IBAction func demobuttonPressed(_ sender: Any) {
         var season:Season!
@@ -75,13 +76,12 @@ class MainViewController: UIViewController {
         print(currentWeather?.symbol.stringRepresentation() ?? "")
         demoCounter = (demoCounter + 1)%(15*4)
     }
-    
-    
     @IBAction func feedbackPressed(_ sender: Any) {
         UIApplication.shared.openURL(URL(string: "http://www.mfd.se/kladereftervader")!)
 
     }
     
+    // Find the embedded pageview by catching its segueue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destination = segue.destination as? ImagePageViewController{
@@ -94,11 +94,11 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         loadWeather()
     }
     
+    //Loads and displays the current weather
     func loadWeather(){
         imageView.image = nil
         imagePageView?.setImages([])
