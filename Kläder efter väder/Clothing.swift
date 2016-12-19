@@ -48,7 +48,8 @@ enum Clothing: String{
         switch weather.temperature {
         case (-100)..<(-15): return .mycketKallt
         case (-15)..<(-5): return .kallt
-        case (-5)..<(5): return (weather.rainfall > 0) ? .nollgradigtRegn : .nollgradigt
+        case (-5)..<0: return .nollgradigt
+        case 0..<(5): return (weather.rainfall > 0) ? .nollgradigtRegn : .nollgradigt
         case (5)..<(15): return (weather.rainfall > 0) ? .kyligtRegn : .kyligt
         case (15)..<(25): return (weather.rainfall > 0) ? .varmtRegn : .varmt
         case (25)..<(100): return (weather.rainfall > 0) ? .hettRegn : .hett

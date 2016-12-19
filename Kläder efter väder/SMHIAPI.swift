@@ -11,10 +11,10 @@ import CoreLocation
 
 
 struct Weather {
-    let symbol: WeatherSymbol
-    let temperature: Double
-    let rainfall: Double
-    let windSpeed: Double
+    var symbol: WeatherSymbol
+    var temperature: Double
+    var rainfall: Double
+    var windSpeed: Double
     
     init(symbol: WeatherSymbol, temperature: Double, rainfall: Double, windSpeed: Double){
         self.symbol = symbol
