@@ -17,7 +17,7 @@ class WeatherAnimation{
         layer?.removeAllAnimations()
     }
     func create(in view:UIView, for weather:Weather){
-        if weather.rainfall == 0 { return }
+        if weather.rainfall < 0.1 { return }
         
         // make sure the animation is visible, even for low amounts
         let rainfall = max( weather.rainfall, 0.7)
