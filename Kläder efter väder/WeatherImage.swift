@@ -103,7 +103,7 @@ enum WeatherSymbol{
         case .ClearSky(.winter): return #imageLiteral(resourceName: "vinter_klart")
         case .NearlyclearSky(.winter): return #imageLiteral(resourceName: "vinter_mest_klart")
         case .Variablecloudiness(.winter): return #imageLiteral(resourceName: "vinter_vaxlandemolnighet")
-        case .Halfclearsky(.winter): return #imageLiteral(resourceName: "vinter_regnskur_byarsnoblandat_askskurar")
+        case .Halfclearsky(.winter): return #imageLiteral(resourceName: "vinter_vaxlandemolnighet")
         case .Cloudysky(.winter): return #imageLiteral(resourceName: "vinter_molnigt")
         case .Overcast(.winter): return #imageLiteral(resourceName: "vinter_regnskur_byarsnoblandat_askskurar")
         case .Fog(.winter): return #imageLiteral(resourceName: "vinter_dimma")
