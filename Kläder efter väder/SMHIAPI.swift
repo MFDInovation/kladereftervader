@@ -48,7 +48,7 @@ struct Weather {
                 let windSpeed = Weather.getValueForSymbol(json: parameters, name: "ws").double,
                 let symbol = WeatherSymbol.create(rawValue: symbolInteger){
                 
-                if (rainfall > maxRainfall){
+                if (worstSymbol == nil || worstSymbol!.priority < symbol.priority){
                     worstSymbol = symbol
                 }
                 maxRainfall = max(rainfall, maxRainfall)

@@ -70,12 +70,33 @@ enum WeatherSymbol{
         case 15: return .Snowfall(season: season)
         default: return nil
         }
-
     }
     static func create(rawValue: Int) -> WeatherSymbol? {
         let season = Season.current
         return create(rawValue: rawValue, season: season)
     }
+    var priority: Int{
+        get{
+            switch self {
+            case .ClearSky: return 1
+            case .NearlyclearSky: return 2
+            case .Variablecloudiness: return 3
+            case .Halfclearsky: return 4
+            case .Cloudysky: return 5
+            case .Overcast: return 6
+            case .Fog: return 7
+            case .Rainshowers: return 8
+            case .Rain: return 9
+            case .Snowshowers: return 10
+            case .Snowfall: return 11
+            case .Thunderstorm: return 12
+            case .Thunder: return 13
+            case .Lightsleet: return 14
+            case .Sleet: return 15
+            }
+        }
+    }
+    
     
     func stringRepresentation() -> String{
         switch self {
