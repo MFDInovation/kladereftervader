@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="If2-B7-Nfl">
-                                <rect key="frame" x="0.0" y="16" width="768" height="1077"/>
+                                <rect key="frame" x="0.0" y="16" width="768" height="1069"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ERY-qe-EnX">
                                     <size key="itemSize" width="765" height="1059"/>
@@ -152,7 +152,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0D6-pj-y4j" customClass="ImagesCollectionViewCell" customModule="Kla_der_efter_va_der" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9" width="765" height="1059"/>
+                                        <rect key="frame" x="0.0" y="5" width="765" height="1059"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="765" height="1059"/>
@@ -310,22 +310,22 @@
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="jz9-xc-SHG">
-                                <rect key="frame" x="348" y="1093" width="71" height="37"/>
+                                <rect key="frame" x="348" y="1085" width="71" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1FX-SB-qF9">
-                                <rect key="frame" x="5" y="1140" width="413" height="52"/>
+                                <rect key="frame" x="5" y="1132" width="413" height="60"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI1-nf-kfQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="158" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="158" height="60"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                        <inset key="contentEdgeInsets" minX="12" minY="16" maxX="12" maxY="16"/>
                                         <state key="normal" title="Hantera bilder">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -337,14 +337,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbC-Kc-DX5">
-                                        <rect key="frame" x="161" y="0.0" width="79" height="52"/>
+                                        <rect key="frame" x="161" y="0.0" width="79" height="60"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="23"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="16" maxX="20" maxY="16"/>
                                         <state key="normal" title="Klar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -357,14 +357,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-UZ-g4B">
-                                        <rect key="frame" x="243" y="0.0" width="115" height="52"/>
+                                        <rect key="frame" x="243" y="0.0" width="115" height="60"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="16" maxX="20" maxY="16"/>
                                         <state key="normal" title="Lägg till">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -376,14 +376,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dd-ai-gEl">
-                                        <rect key="frame" x="361" y="0.0" width="52" height="52"/>
+                                        <rect key="frame" x="361" y="0.0" width="52" height="60"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="16" maxX="20" maxY="16"/>
                                         <state key="normal" title="?">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -398,17 +398,17 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="bE7-Nm-viV">
-                                <rect key="frame" x="652" y="1141" width="111" height="51"/>
+                                <rect key="frame" x="652" y="1131" width="111" height="61"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgM-Xd-AaA">
-                                        <rect key="frame" x="0.0" y="0.0" width="54" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="61"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="17" maxX="20" maxY="17"/>
                                         <state key="normal" title="&lt;">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -420,14 +420,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3S-6j-WzA">
-                                        <rect key="frame" x="57" y="0.0" width="54" height="51"/>
+                                        <rect key="frame" x="57" y="0.0" width="54" height="61"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="12" maxX="20" maxY="12"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="17" maxX="20" maxY="17"/>
                                         <state key="normal" title="&gt;">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>

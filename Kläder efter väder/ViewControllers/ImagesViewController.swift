@@ -106,9 +106,9 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
             let buttons: Array<UIButton> = [manageImagesButton, doneButton, addButton, helpButton, leftButton, rightButton]
             for btn in buttons {
                 if (btn == manageImagesButton) {
-                    btn.contentEdgeInsets = UIEdgeInsets(top: 11, left: 9, bottom: 11, right: 9)
+                    btn.contentEdgeInsets = UIEdgeInsets(top: 12, left: 9, bottom: 12, right: 9)
                 } else {
-                    btn.contentEdgeInsets = UIEdgeInsets(top: 11, left: 15, bottom: 11, right: 15)
+                    btn.contentEdgeInsets = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
                 }
                 
                 btn.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
@@ -167,6 +167,14 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         let message = manageMode ? constants.changeClothesHelpText : constants.startHelptText
 
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let subview = alert.view.subviews.first! as UIView
+        let alertContentView = subview.subviews.first! as UIView
+        alertContentView.alpha = 1
+        alertContentView.backgroundColor = UIColor.white
+        alertContentView.layer.cornerRadius = 10
+        alertContentView.alpha = 1
+        
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         alert.isAccessibilityElement = true
         alert.accessibilityLabel = message
