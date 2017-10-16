@@ -1,0 +1,154 @@
+//
+//  ViewController.swift
+//  Kläder efter väder
+//
+//  Created by Paul Griffin on 2016-10-31.
+//  Copyright © 2016 Knowit. All rights reserved.
+//
+
+import UIKit
+// View controller responsible for the main view.
+class MainViewController: UIViewController {
+    
+    let smhi = SMHIAPI()
+    let gps = GPS()
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    var imagesViewController: ImagesViewController? = nil
+    var currentWeather: Weather?
+    var weatherAnimation = WeatherAnimation()
+    var lastLoadTime = Date.distantPast
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        temperatureLabel.backgroundColor = UIColor.init(white: 0.9, alpha: 1)
+        loadAccessibility()
+        loadWeather()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if Date().timeIntervalSince(lastLoadTime) > 30*60 {
+            loadWeather()
+        } else {
+            if let currentWeather = currentWeather{
+                showWeather(currentWeather, animated: false)
+            }
+        }
+    }
+
+
+    // MARK: - Weather
+
+    //Loads and displays the current weather
+    func loadWeather(){
+        imageView.image = nil
+        temperatureLabel.text = ""
+        activityIndicator.startAnimating()
+
+        gps.findLocation {
+            switch $0{
+            case .success(let location):
+                self.smhi.getUpcomingWeather(location: location) { result in
+                    OperationQueue.main.addOperation {
+                        self.weatherAnimation.clear()
+                        self.activityIndicator.stopAnimating()
+                        switch result {
+                        case .success(let weather):
+                            self.lastLoadTime = Date()
+                            self.currentWeather = weather
+                            self.showWeather(weather)
+                        case .error(_):
+                            self.currentWeather = nil
+                            // Reset imagesViewController
+                            self.showWeather(self.currentWeather)
+                        }
+                    }
+                }
+            case .error(_):
+                OperationQueue.main.addOperation {
+                    self.activityIndicator.stopAnimating()
+                    self.currentWeather = nil
+                    self.showWeather(self.currentWeather)
+                }
+            }
+        }
+    }
+
+    private func updateTemperatureLabelForWeather(_ weather: Weather) {
+        temperatureLabel.text = "\(Int(round(weather.temperature)))°"
+    }
+
+    private func resetTemperatureLabel() {
+        temperatureLabel.text = ""
+    }
+    
+    private func resetImages(_ animated: Bool) {
+        imageView.isAccessibilityElement = false
+        imageView.image = nil
+    }
+    
+    func showWeather(_ weather: Weather?, animated:Bool=true) {
+        if let weather = weather {
+            imageView.image = weather.symbol.imageRepresentation()
+            updateTemperatureLabelForWeather(weather)
+            updateAccessibilityLabelsForWeather(weather)
+            restartAnimations()
+            imagesViewController?.weather = weather
+        } else {
+            resetTemperatureLabel()
+            resetImages(animated)
+            imagesViewController?.weather = nil
+//            containerView.accessibilityLabel = currentClothes.rawValue
+        }
+    }
+
+
+    // MARK: - Animations
+
+    public func stopAnimations(){
+        weatherAnimation.clear()
+    }
+    
+    public func restartAnimations(){
+        stopAnimations()
+        if let currentWeather = currentWeather {
+            weatherAnimation.create(in: imageView, for: currentWeather)
+        }
+    }
+
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EmbedImagesVC" {
+            let destination = segue.destination as? ImagesViewController
+            imagesViewController = destination
+        }
+    }
+
+
+    // MARK: - Accessibility
+
+    func loadAccessibility(){
+        if #available(iOS 10.0, *) {
+            imageView.isAccessibilityElement = true
+            imageView.accessibilityLabel = "Klicka för att zooma"
+            
+            temperatureLabel.adjustsFontForContentSizeCategory = true
+            temperatureLabel.isAccessibilityElement = true
+            temperatureLabel.accessibilityLabel = "Temperatur: \(currentWeather?.temperature ?? 0)"
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+
+    private func updateAccessibilityLabelsForWeather(_ weather: Weather) {
+        imageView.accessibilityLabel = weather.symbol.stringRepresentation()
+//        containerView.accessibilityLabel = currentClothes.rawValue  //???
+        temperatureLabel.accessibilityValue = "Temperatur: \(Int(round(weather.temperature)))°"
+    }
+}

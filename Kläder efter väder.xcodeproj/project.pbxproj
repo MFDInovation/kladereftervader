@@ -7,47 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA3937521DF16D6D0064B896 /* WeatherAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3937511DF16D6D0064B896 /* WeatherAnimation.swift */; };
+		D72A98D41F8CA26A005B4D13 /* UIDevice+ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A98D31F8CA26A005B4D13 /* UIDevice+ScreenType.swift */; };
+		D7D8BB741F8BB67E00856654 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D8BB731F8BB67E00856654 /* PaddedLabel.swift */; };
+		D7D9DAB31F8D11EE00260E47 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DAB21F8D11EE00260E47 /* ImageDetailViewController.swift */; };
+		D7D9DAB61F8D334F00260E47 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DAB51F8D334F00260E47 /* ImageScrollView.swift */; };
+		D7D9DAB81F8D356800260E47 /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DAB71F8D356800260E47 /* ZoomTransitioningDelegate.swift */; };
+		D7D9DABD1F8D457000260E47 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DABC1F8D43F600260E47 /* PopAnimator.swift */; };
+		D7EAD4E61F84D48000A4A9C7 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4E21F84D47F00A4A9C7 /* CommonExtensions.swift */; };
+		D7EAD4E71F84D48000A4A9C7 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4E31F84D47F00A4A9C7 /* GPS.swift */; };
+		D7EAD4E81F84D48000A4A9C7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4E41F84D47F00A4A9C7 /* Networking.swift */; };
+		D7EAD4E91F84D48000A4A9C7 /* SMHIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4E51F84D47F00A4A9C7 /* SMHIAPI.swift */; };
+		D7EAD4ED1F84D4BB00A4A9C7 /* Clothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4EB1F84D4BB00A4A9C7 /* Clothing.swift */; };
+		D7EAD4EE1F84D4BB00A4A9C7 /* WeatherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4EC1F84D4BB00A4A9C7 /* WeatherImage.swift */; };
+		D7EAD4F31F84D51B00A4A9C7 /* ParticleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4F01F84D51B00A4A9C7 /* ParticleAnimation.swift */; };
+		D7EAD4F41F84D51B00A4A9C7 /* ThunderAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4F11F84D51B00A4A9C7 /* ThunderAnimation.swift */; };
+		D7EAD4F51F84D51B00A4A9C7 /* WeatherAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4F21F84D51B00A4A9C7 /* WeatherAnimation.swift */; };
+		D7EAD50D1F84D52000A4A9C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD5001F84D52000A4A9C7 /* MainViewController.swift */; };
+		D7EAD5161F84D63300A4A9C7 /* ClothesEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD5151F84D63300A4A9C7 /* ClothesEnumeration.swift */; };
+		D7EAD5191F84D66300A4A9C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD5181F84D66300A4A9C7 /* Constants.swift */; };
+		D7EAD51B1F84DD4A00A4A9C7 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD51A1F84DD4A00A4A9C7 /* ImagesViewController.swift */; };
+		D7EAD51D1F84E4BC00A4A9C7 /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD51C1F84E4BC00A4A9C7 /* ImagesCollectionViewCell.swift */; };
+		D7EAD51F1F84E58900A4A9C7 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD51E1F84E58900A4A9C7 /* ImageTableViewCell.swift */; };
 		DA4A90AF1DC733E500636ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90AE1DC733E500636ED1 /* AppDelegate.swift */; };
-		DA4A90B11DC733E500636ED1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90B01DC733E500636ED1 /* MainViewController.swift */; };
 		DA4A90B41DC733E500636ED1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4A90B21DC733E500636ED1 /* Main.storyboard */; };
 		DA4A90B61DC733E500636ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4A90B51DC733E500636ED1 /* Assets.xcassets */; };
 		DA4A90B91DC733E500636ED1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4A90B71DC733E500636ED1 /* LaunchScreen.storyboard */; };
-		DA4A90C11DC7344D00636ED1 /* SMHIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90C01DC7344D00636ED1 /* SMHIAPI.swift */; };
-		DA4A90C31DC7348A00636ED1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90C21DC7348A00636ED1 /* Networking.swift */; };
-		DA4A90C51DC736FA00636ED1 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90C41DC736FA00636ED1 /* GPS.swift */; };
-		DA4A90C71DC7451F00636ED1 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A90C61DC7451F00636ED1 /* CommonExtensions.swift */; };
-		DA5717241DDAFEEF009C8688 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5717231DDAFEEF009C8688 /* ImageViewController.swift */; };
-		DA5717261DDB031D009C8688 /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5717251DDB031D009C8688 /* ImagePageViewController.swift */; };
-		DA715BDC1E02E428003D83B5 /* ThunderAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA715BDB1E02E427003D83B5 /* ThunderAnimation.swift */; };
-		DA715BDE1E02E47A003D83B5 /* ParticleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA715BDD1E02E47A003D83B5 /* ParticleAnimation.swift */; };
-		DA89B1C91DEDA81500726982 /* WeatherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B1C81DEDA81500726982 /* WeatherImage.swift */; };
-		DABDD7501DC75862002F5724 /* ClothesItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDD74F1DC75862002F5724 /* ClothesItemTableViewCell.swift */; };
-		DABDD7521DC75872002F5724 /* ClothesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDD7511DC75872002F5724 /* ClothesTableViewController.swift */; };
-		DABDD7551DC7956E002F5724 /* Clothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDD7541DC7956E002F5724 /* Clothing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA3937511DF16D6D0064B896 /* WeatherAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAnimation.swift; sourceTree = "<group>"; };
+		D72A98D31F8CA26A005B4D13 /* UIDevice+ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenType.swift"; sourceTree = "<group>"; };
+		D7D8BB731F8BB67E00856654 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		D7D9DAB21F8D11EE00260E47 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		D7D9DAB51F8D334F00260E47 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
+		D7D9DAB71F8D356800260E47 /* ZoomTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomTransitioningDelegate.swift; sourceTree = "<group>"; };
+		D7D9DABC1F8D43F600260E47 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
+		D7EAD4E21F84D47F00A4A9C7 /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
+		D7EAD4E31F84D47F00A4A9C7 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
+		D7EAD4E41F84D47F00A4A9C7 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		D7EAD4E51F84D47F00A4A9C7 /* SMHIAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMHIAPI.swift; sourceTree = "<group>"; };
+		D7EAD4EB1F84D4BB00A4A9C7 /* Clothing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clothing.swift; sourceTree = "<group>"; };
+		D7EAD4EC1F84D4BB00A4A9C7 /* WeatherImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherImage.swift; sourceTree = "<group>"; };
+		D7EAD4F01F84D51B00A4A9C7 /* ParticleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleAnimation.swift; sourceTree = "<group>"; };
+		D7EAD4F11F84D51B00A4A9C7 /* ThunderAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThunderAnimation.swift; sourceTree = "<group>"; };
+		D7EAD4F21F84D51B00A4A9C7 /* WeatherAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAnimation.swift; sourceTree = "<group>"; };
+		D7EAD5001F84D52000A4A9C7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D7EAD5151F84D63300A4A9C7 /* ClothesEnumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothesEnumeration.swift; sourceTree = "<group>"; };
+		D7EAD5181F84D66300A4A9C7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D7EAD51A1F84DD4A00A4A9C7 /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
+		D7EAD51C1F84E4BC00A4A9C7 /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7EAD51E1F84E58900A4A9C7 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		DA4A90AB1DC733E500636ED1 /* Kläder efter väder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kläder efter väder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4A90AE1DC733E500636ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA4A90B01DC733E500636ED1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DA4A90B31DC733E500636ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA4A90B51DC733E500636ED1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA4A90B81DC733E500636ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4A90BA1DC733E500636ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA4A90C01DC7344D00636ED1 /* SMHIAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMHIAPI.swift; sourceTree = "<group>"; };
-		DA4A90C21DC7348A00636ED1 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		DA4A90C41DC736FA00636ED1 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
-		DA4A90C61DC7451F00636ED1 /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
-		DA5717231DDAFEEF009C8688 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		DA5717251DDB031D009C8688 /* ImagePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
-		DA715BDB1E02E427003D83B5 /* ThunderAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThunderAnimation.swift; sourceTree = "<group>"; };
-		DA715BDD1E02E47A003D83B5 /* ParticleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleAnimation.swift; sourceTree = "<group>"; };
-		DA89B1C81DEDA81500726982 /* WeatherImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherImage.swift; sourceTree = "<group>"; };
-		DABDD74F1DC75862002F5724 /* ClothesItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothesItemTableViewCell.swift; sourceTree = "<group>"; };
-		DABDD7511DC75872002F5724 /* ClothesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothesTableViewController.swift; sourceTree = "<group>"; };
-		DABDD7541DC7956E002F5724 /* Clothing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clothing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +75,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7B3B8091F8B747600D4BCE8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D7EAD5181F84D66300A4A9C7 /* Constants.swift */,
+				D72A98D31F8CA26A005B4D13 /* UIDevice+ScreenType.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		D7D9DAB41F8D332100260E47 /* Zooming */ = {
+			isa = PBXGroup;
+			children = (
+				D7D9DAB51F8D334F00260E47 /* ImageScrollView.swift */,
+				D7D9DAB71F8D356800260E47 /* ZoomTransitioningDelegate.swift */,
+			);
+			path = Zooming;
+			sourceTree = "<group>";
+		};
+		D7D9DABB1F8D43CD00260E47 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				D7D9DABC1F8D43F600260E47 /* PopAnimator.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		D7EAD4E11F84D47F00A4A9C7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D7EAD4E21F84D47F00A4A9C7 /* CommonExtensions.swift */,
+				D7EAD4E31F84D47F00A4A9C7 /* GPS.swift */,
+				D7EAD4E41F84D47F00A4A9C7 /* Networking.swift */,
+				D7EAD4E51F84D47F00A4A9C7 /* SMHIAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D7EAD4EA1F84D4BB00A4A9C7 /* ImageHandling */ = {
+			isa = PBXGroup;
+			children = (
+				D7EAD4EB1F84D4BB00A4A9C7 /* Clothing.swift */,
+				D7EAD4EC1F84D4BB00A4A9C7 /* WeatherImage.swift */,
+			);
+			path = ImageHandling;
+			sourceTree = "<group>";
+		};
+		D7EAD4EF1F84D51B00A4A9C7 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				D7EAD4F01F84D51B00A4A9C7 /* ParticleAnimation.swift */,
+				D7EAD4F11F84D51B00A4A9C7 /* ThunderAnimation.swift */,
+				D7EAD4F21F84D51B00A4A9C7 /* WeatherAnimation.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		D7EAD4F61F84D52000A4A9C7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7EAD5001F84D52000A4A9C7 /* MainViewController.swift */,
+				D7EAD51A1F84DD4A00A4A9C7 /* ImagesViewController.swift */,
+				D7EAD51C1F84E4BC00A4A9C7 /* ImagesCollectionViewCell.swift */,
+				D7EAD51E1F84E58900A4A9C7 /* ImageTableViewCell.swift */,
+				D7D9DAB21F8D11EE00260E47 /* ImageDetailViewController.swift */,
+				D7D8BB731F8BB67E00856654 /* PaddedLabel.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D7EAD5171F84D63C00A4A9C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7EAD5151F84D63300A4A9C7 /* ClothesEnumeration.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DA4A90A21DC733E500636ED1 = {
 			isa = PBXGroup;
 			children = (
@@ -80,59 +171,21 @@
 		DA4A90AD1DC733E500636ED1 /* Kläder efter väder */ = {
 			isa = PBXGroup;
 			children = (
-				DABDD7531DC79073002F5724 /* API */,
-				DA715BE01E02E4B8003D83B5 /* ImageHandling */,
-				DA715BDF1E02E4A0003D83B5 /* Animations */,
 				DA4A90AE1DC733E500636ED1 /* AppDelegate.swift */,
+				D7EAD4F61F84D52000A4A9C7 /* ViewControllers */,
+				D7EAD4EF1F84D51B00A4A9C7 /* Animations */,
+				D7EAD4E11F84D47F00A4A9C7 /* API */,
+				D7EAD4EA1F84D4BB00A4A9C7 /* ImageHandling */,
+				D7EAD5171F84D63C00A4A9C7 /* Models */,
+				D7D9DABB1F8D43CD00260E47 /* Transitions */,
+				D7D9DAB41F8D332100260E47 /* Zooming */,
+				D7B3B8091F8B747600D4BCE8 /* Other */,
 				DA4A90B21DC733E500636ED1 /* Main.storyboard */,
 				DA4A90B51DC733E500636ED1 /* Assets.xcassets */,
 				DA4A90B71DC733E500636ED1 /* LaunchScreen.storyboard */,
 				DA4A90BA1DC733E500636ED1 /* Info.plist */,
-				DA715BE11E02E531003D83B5 /* ViewControllers */,
 			);
 			path = "Kläder efter väder";
-			sourceTree = "<group>";
-		};
-		DA715BDF1E02E4A0003D83B5 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				DA3937511DF16D6D0064B896 /* WeatherAnimation.swift */,
-				DA715BDB1E02E427003D83B5 /* ThunderAnimation.swift */,
-				DA715BDD1E02E47A003D83B5 /* ParticleAnimation.swift */,
-			);
-			name = Animations;
-			sourceTree = "<group>";
-		};
-		DA715BE01E02E4B8003D83B5 /* ImageHandling */ = {
-			isa = PBXGroup;
-			children = (
-				DABDD7541DC7956E002F5724 /* Clothing.swift */,
-				DA89B1C81DEDA81500726982 /* WeatherImage.swift */,
-			);
-			name = ImageHandling;
-			sourceTree = "<group>";
-		};
-		DA715BE11E02E531003D83B5 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				DA4A90B01DC733E500636ED1 /* MainViewController.swift */,
-				DABDD7511DC75872002F5724 /* ClothesTableViewController.swift */,
-				DABDD74F1DC75862002F5724 /* ClothesItemTableViewCell.swift */,
-				DA5717231DDAFEEF009C8688 /* ImageViewController.swift */,
-				DA5717251DDB031D009C8688 /* ImagePageViewController.swift */,
-			);
-			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		DABDD7531DC79073002F5724 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				DA4A90C01DC7344D00636ED1 /* SMHIAPI.swift */,
-				DA4A90C21DC7348A00636ED1 /* Networking.swift */,
-				DA4A90C41DC736FA00636ED1 /* GPS.swift */,
-				DA4A90C61DC7451F00636ED1 /* CommonExtensions.swift */,
-			);
-			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,7 +220,8 @@
 				TargetAttributes = {
 					DA4A90AA1DC733E500636ED1 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 92R23WEN26;
+						DevelopmentTeam = GJCZ442875;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -208,21 +262,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DABDD7521DC75872002F5724 /* ClothesTableViewController.swift in Sources */,
-				DA715BDC1E02E428003D83B5 /* ThunderAnimation.swift in Sources */,
-				DA4A90B11DC733E500636ED1 /* MainViewController.swift in Sources */,
+				D7EAD5191F84D66300A4A9C7 /* Constants.swift in Sources */,
+				D7EAD50D1F84D52000A4A9C7 /* MainViewController.swift in Sources */,
+				D7D9DAB81F8D356800260E47 /* ZoomTransitioningDelegate.swift in Sources */,
+				D7EAD4ED1F84D4BB00A4A9C7 /* Clothing.swift in Sources */,
+				D7EAD4F41F84D51B00A4A9C7 /* ThunderAnimation.swift in Sources */,
+				D7EAD4F51F84D51B00A4A9C7 /* WeatherAnimation.swift in Sources */,
+				D7EAD51D1F84E4BC00A4A9C7 /* ImagesCollectionViewCell.swift in Sources */,
 				DA4A90AF1DC733E500636ED1 /* AppDelegate.swift in Sources */,
-				DA5717261DDB031D009C8688 /* ImagePageViewController.swift in Sources */,
-				DA4A90C11DC7344D00636ED1 /* SMHIAPI.swift in Sources */,
-				DA4A90C31DC7348A00636ED1 /* Networking.swift in Sources */,
-				DA715BDE1E02E47A003D83B5 /* ParticleAnimation.swift in Sources */,
-				DABDD7501DC75862002F5724 /* ClothesItemTableViewCell.swift in Sources */,
-				DA4A90C71DC7451F00636ED1 /* CommonExtensions.swift in Sources */,
-				DA89B1C91DEDA81500726982 /* WeatherImage.swift in Sources */,
-				DABDD7551DC7956E002F5724 /* Clothing.swift in Sources */,
-				DA3937521DF16D6D0064B896 /* WeatherAnimation.swift in Sources */,
-				DA5717241DDAFEEF009C8688 /* ImageViewController.swift in Sources */,
-				DA4A90C51DC736FA00636ED1 /* GPS.swift in Sources */,
+				D7EAD4F31F84D51B00A4A9C7 /* ParticleAnimation.swift in Sources */,
+				D7D9DAB31F8D11EE00260E47 /* ImageDetailViewController.swift in Sources */,
+				D7EAD4E91F84D48000A4A9C7 /* SMHIAPI.swift in Sources */,
+				D7EAD51F1F84E58900A4A9C7 /* ImageTableViewCell.swift in Sources */,
+				D7EAD4E61F84D48000A4A9C7 /* CommonExtensions.swift in Sources */,
+				D72A98D41F8CA26A005B4D13 /* UIDevice+ScreenType.swift in Sources */,
+				D7D9DABD1F8D457000260E47 /* PopAnimator.swift in Sources */,
+				D7EAD5161F84D63300A4A9C7 /* ClothesEnumeration.swift in Sources */,
+				D7EAD51B1F84DD4A00A4A9C7 /* ImagesViewController.swift in Sources */,
+				D7D8BB741F8BB67E00856654 /* PaddedLabel.swift in Sources */,
+				D7EAD4E71F84D48000A4A9C7 /* GPS.swift in Sources */,
+				D7D9DAB61F8D334F00260E47 /* ImageScrollView.swift in Sources */,
+				D7EAD4E81F84D48000A4A9C7 /* Networking.swift in Sources */,
+				D7EAD4EE1F84D4BB00A4A9C7 /* WeatherImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,12 +349,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -331,10 +393,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -343,12 +406,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 92R23WEN26;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJCZ442875;
 				INFOPLIST_FILE = "Kläder efter väder/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.knowit.Kla-der-efter-va-der2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.knowit.Kla-der-efter-va-der";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -358,12 +425,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 92R23WEN26;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJCZ442875;
 				INFOPLIST_FILE = "Kläder efter väder/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.knowit.Kla-der-efter-va-der2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.knowit.Kla-der-efter-va-der";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

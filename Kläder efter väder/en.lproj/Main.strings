@@ -1,0 +1,75 @@
+
+/* Class = "UIButton"; accessibilityLabel = "Lägg till bilder"; ObjectID = "4XS-xD-qly"; */
+"4XS-xD-qly.accessibilityLabel" = "Lägg till bilder";
+
+/* Class = "UIButton"; normalTitle = "Lägg till bilder"; ObjectID = "4XS-xD-qly"; */
+"4XS-xD-qly.normalTitle" = "Lägg till bilder";
+
+/* Class = "UIImageView"; accessibilityLabel = "Temperatur och egna bilder"; ObjectID = "4Yu-Je-inO"; */
+"4Yu-Je-inO.accessibilityLabel" = "Temperatur och egna bilder";
+
+/* Class = "UIImageView"; accessibilityLabel = "Visar bilder"; ObjectID = "6gW-a5-J0A"; */
+"6gW-a5-J0A.accessibilityLabel" = "Visar bilder";
+
+/* Class = "UITabBarItem"; title = "Övriga kläder"; ObjectID = "70f-qE-Ug1"; */
+"70f-qE-Ug1.title" = "Övriga kläder";
+
+/* Class = "UIButton"; accessibilityLabel = "Lägg till bild"; ObjectID = "9Ik-e5-WaV"; */
+"9Ik-e5-WaV.accessibilityLabel" = "Lägg till bild";
+
+/* Class = "UIButton"; normalTitle = "Lägg till"; ObjectID = "9Ik-e5-WaV"; */
+"9Ik-e5-WaV.normalTitle" = "Lägg till";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "9SQ-qu-vll"; */
+"9SQ-qu-vll.text" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "Klar"; ObjectID = "CGs-zf-CjP"; */
+"CGs-zf-CjP.title" = "Klar";
+
+/* Class = "UIImageView"; accessibilityHint = "bildvisare"; ObjectID = "CcQ-l9-w6R"; */
+"CcQ-l9-w6R.accessibilityHint" = "bildvisare";
+
+/* Class = "UIImageView"; accessibilityLabel = "Här ser du bilder"; ObjectID = "CcQ-l9-w6R"; */
+"CcQ-l9-w6R.accessibilityLabel" = "Här ser du bilder";
+
+/* Class = "UITabBarItem"; title = "Egna bilder"; ObjectID = "Dnh-sR-EfL"; */
+"Dnh-sR-EfL.title" = "Egna bilder";
+
+/* Class = "UIBarButtonItem"; title = "Klar"; ObjectID = "LAV-rq-xyN"; */
+"LAV-rq-xyN.title" = "Klar";
+
+/* Class = "UIBarButtonItem"; title = "Lägg till"; ObjectID = "QVh-1u-WKF"; */
+"QVh-1u-WKF.title" = "Lägg till";
+
+/* Class = "UIBarButtonItem"; title = "Säsong"; ObjectID = "RW9-S2-EWg"; */
+"RW9-S2-EWg.title" = "Säsong";
+
+/* Class = "UIButton"; accessibilityLabel = "Ta bort bilden för detta väder"; ObjectID = "TAn-w6-JbI"; */
+"TAn-w6-JbI.accessibilityLabel" = "Ta bort bilden för detta väder";
+
+/* Class = "UIButton"; normalTitle = "Ta bort"; ObjectID = "TAn-w6-JbI"; */
+"TAn-w6-JbI.normalTitle" = "Ta bort";
+
+/* Class = "UIButton"; accessibilityLabel = "Ta bort bild"; ObjectID = "TGo-Mm-EeN"; */
+"TGo-Mm-EeN.accessibilityLabel" = "Ta bort bild";
+
+/* Class = "UIButton"; normalTitle = "Ta bort"; ObjectID = "TGo-Mm-EeN"; */
+"TGo-Mm-EeN.normalTitle" = "Ta bort";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Wsg-jU-PWh"; */
+"Wsg-jU-PWh.text" = "Title";
+
+/* Class = "UILabel"; text = "8°"; ObjectID = "Xaa-dl-sZI"; */
+"Xaa-dl-sZI.text" = "8°";
+
+/* Class = "UIButton"; normalTitle = "Demo"; ObjectID = "eMd-Ef-Pph"; */
+"eMd-Ef-Pph.normalTitle" = "Demo";
+
+/* Class = "UINavigationItem"; title = "Byt bilder för ett väder"; ObjectID = "p4v-Rn-afw"; */
+"p4v-Rn-afw.title" = "Byt bilder för ett väder";
+
+/* Class = "UINavigationItem"; title = "Kläder efter väder"; ObjectID = "peH-aW-iRv"; */
+"peH-aW-iRv.title" = "Kläder efter väder";
+
+/* Class = "UINavigationItem"; title = "Byt bilder för detta väder"; ObjectID = "vMa-33-HiS"; */
+"vMa-33-HiS.title" = "Byt bilder för detta väder";
