@@ -299,7 +299,9 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.frame.size
+        var size = collectionView.frame.size
+        size.height -= 4
+        return size
     }
 
     internal func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
