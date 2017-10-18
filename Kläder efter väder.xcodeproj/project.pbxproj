@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52E65D521F9725010032BEB5 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E65D511F9725010032BEB5 /* Animator.swift */; };
 		D72A98D41F8CA26A005B4D13 /* UIDevice+ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A98D31F8CA26A005B4D13 /* UIDevice+ScreenType.swift */; };
 		D7D8BB741F8BB67E00856654 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D8BB731F8BB67E00856654 /* PaddedLabel.swift */; };
 		D7D9DAB31F8D11EE00260E47 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DAB21F8D11EE00260E47 /* ImageDetailViewController.swift */; };
 		D7D9DAB61F8D334F00260E47 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DAB51F8D334F00260E47 /* ImageScrollView.swift */; };
 		D7D9DAB81F8D356800260E47 /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DAB71F8D356800260E47 /* ZoomTransitioningDelegate.swift */; };
-		D7D9DABD1F8D457000260E47 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DABC1F8D43F600260E47 /* PopAnimator.swift */; };
 		D7EAD4E61F84D48000A4A9C7 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4E21F84D47F00A4A9C7 /* CommonExtensions.swift */; };
 		D7EAD4E71F84D48000A4A9C7 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4E31F84D47F00A4A9C7 /* GPS.swift */; };
 		D7EAD4E81F84D48000A4A9C7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EAD4E41F84D47F00A4A9C7 /* Networking.swift */; };
@@ -35,12 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52E65D511F9725010032BEB5 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		D72A98D31F8CA26A005B4D13 /* UIDevice+ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenType.swift"; sourceTree = "<group>"; };
 		D7D8BB731F8BB67E00856654 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		D7D9DAB21F8D11EE00260E47 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		D7D9DAB51F8D334F00260E47 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		D7D9DAB71F8D356800260E47 /* ZoomTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomTransitioningDelegate.swift; sourceTree = "<group>"; };
-		D7D9DABC1F8D43F600260E47 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		D7EAD4E21F84D47F00A4A9C7 /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
 		D7EAD4E31F84D47F00A4A9C7 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
 		D7EAD4E41F84D47F00A4A9C7 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		D7D9DABB1F8D43CD00260E47 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
-				D7D9DABC1F8D43F600260E47 /* PopAnimator.swift */,
+				52E65D511F9725010032BEB5 /* Animator.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -276,13 +276,13 @@
 				D7EAD51F1F84E58900A4A9C7 /* ImageTableViewCell.swift in Sources */,
 				D7EAD4E61F84D48000A4A9C7 /* CommonExtensions.swift in Sources */,
 				D72A98D41F8CA26A005B4D13 /* UIDevice+ScreenType.swift in Sources */,
-				D7D9DABD1F8D457000260E47 /* PopAnimator.swift in Sources */,
 				D7EAD5161F84D63300A4A9C7 /* ClothesEnumeration.swift in Sources */,
 				D7EAD51B1F84DD4A00A4A9C7 /* ImagesViewController.swift in Sources */,
 				D7D8BB741F8BB67E00856654 /* PaddedLabel.swift in Sources */,
 				D7EAD4E71F84D48000A4A9C7 /* GPS.swift in Sources */,
 				D7D9DAB61F8D334F00260E47 /* ImageScrollView.swift in Sources */,
 				D7EAD4E81F84D48000A4A9C7 /* Networking.swift in Sources */,
+				52E65D521F9725010032BEB5 /* Animator.swift in Sources */,
 				D7EAD4EE1F84D4BB00A4A9C7 /* WeatherImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

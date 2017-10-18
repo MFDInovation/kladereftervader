@@ -22,27 +22,58 @@ class MainViewController: UIViewController {
     var currentWeather: Weather?
     var weatherAnimation = WeatherAnimation()
     var lastLoadTime = Date.distantPast
+    var isLoadingWeather = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         temperatureLabel.backgroundColor = UIColor.init(white: 0.9, alpha: 1)
         loadAccessibility()
-        loadWeather()
+        
+        // Listen for notifications
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: .UIApplicationWillResignActive, object: nil)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadWeatherIfNeeded()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+
+    // MARK: - Background / Foreground
+    
+    @objc private func appDidBecomeActive() {
+        restartAnimations()
+        loadWeatherIfNeeded()
+    }
+    
+    @objc private func appWillResignActive() {
+        stopAnimations()
+    }
+    
+    
+    // MARK: - Weather
+
+    // Load weather if needed
+    func loadWeatherIfNeeded() {
+        if isLoadingWeather {
+            return
+        }
+        
         if Date().timeIntervalSince(lastLoadTime) > 30*60 {
             loadWeather()
         } else {
-            if let currentWeather = currentWeather{
+            if let currentWeather = currentWeather {
                 showWeather(currentWeather, animated: false)
             }
         }
     }
-
-
-    // MARK: - Weather
-
+    
     //Loads and displays the current weather
     func loadWeather(){
         imageView.image = nil
@@ -61,10 +92,14 @@ class MainViewController: UIViewController {
                             self.lastLoadTime = Date()
                             self.currentWeather = weather
                             self.showWeather(weather)
+                            
+                            self.isLoadingWeather = false
                         case .error(_):
                             self.currentWeather = nil
                             // Reset imagesViewController
                             self.showWeather(self.currentWeather)
+                            self.imagesViewController?.showNetworkError()
+                            self.isLoadingWeather = false
                         }
                     }
                 }
@@ -73,6 +108,8 @@ class MainViewController: UIViewController {
                     self.activityIndicator.stopAnimating()
                     self.currentWeather = nil
                     self.showWeather(self.currentWeather)
+                    self.imagesViewController?.showGPSError()
+                    self.isLoadingWeather = false
                 }
             }
         }
@@ -102,7 +139,6 @@ class MainViewController: UIViewController {
             resetTemperatureLabel()
             resetImages(animated)
             imagesViewController?.weather = nil
-//            containerView.accessibilityLabel = currentClothes.rawValue
         }
     }
 
@@ -148,7 +184,6 @@ class MainViewController: UIViewController {
 
     private func updateAccessibilityLabelsForWeather(_ weather: Weather) {
         imageView.accessibilityLabel = weather.symbol.stringRepresentation()
-//        containerView.accessibilityLabel = currentClothes.rawValue  //???
         temperatureLabel.accessibilityValue = "Temperatur: \(Int(round(weather.temperature)))°"
     }
 }

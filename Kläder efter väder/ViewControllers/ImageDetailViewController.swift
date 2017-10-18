@@ -19,6 +19,7 @@ class ImageDetailViewController: UIViewController, UIViewControllerTransitioning
         super.viewDidLoad()
         if imageScrollView != nil {
             imageScrollView.display(image: image!)
+            imageScrollView.contentSize = view.intrinsicContentSize
         }
     }
 
