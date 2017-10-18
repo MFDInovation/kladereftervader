@@ -145,11 +145,11 @@ class MainViewController: UIViewController {
 
     // MARK: - Animations
 
-    public func stopAnimations(){
+    public func stopAnimations() {
         weatherAnimation.clear()
     }
     
-    public func restartAnimations(){
+    public func restartAnimations() {
         stopAnimations()
         if let currentWeather = currentWeather {
             weatherAnimation.create(in: imageView, for: currentWeather)
