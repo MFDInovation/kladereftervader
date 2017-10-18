@@ -44,8 +44,8 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     private let headerPadding : CGFloat = 16
 
     // Custom transition (for zoom view controller)
-    let transition = PopAnimator()
-    var selectedImageView: UIImageView?
+    let transition = Animator()
+    var selectedCell: ImageTableViewCell?
 
 
     override func viewDidLoad() {
@@ -82,11 +82,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
             let clothesData = ClothesData(clothing: clothes, imagePaths: imagePaths)
             data.append(clothesData)
 
-        } else {
-            // No weather, show error
-            let clothes = Clothing.errorNetwork
-            let clothesData = ClothesData(clothing: clothes)
-            data.append(clothesData)
         }
 
         collectionView?.reloadData()
@@ -146,6 +141,24 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
 
+    
+    
+    // MARK: - Show errors
+    
+    func showNetworkError() {
+        showError(errorClothing: Clothing.errorNetwork)
+    }
+    
+    func showGPSError() {
+        showError(errorClothing: Clothing.errorGPS)
+    }
+    
+    private func showError(errorClothing: Clothing) {
+        let clothesData = ClothesData(clothing: errorClothing)
+        data.append(clothesData)
+        collectionView.reloadData()
+    }
+
 
     // MARK: - Navigation
 
@@ -181,11 +194,12 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         present(alert, animated: true, completion: nil)
     }
 
-    func showZoomViewControllerWithImage(imageView: UIImageView) {
-        selectedImageView = imageView
+    func showZoomViewControllerForCell(cell: ImageTableViewCell) {
+        selectedCell = cell
+        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let detailVC = storyboard.instantiateViewController(withIdentifier: "ImageDetail") as! ImageDetailViewController
-        detailVC.image = imageView.image
+        detailVC.image = cell.photoView.image
         detailVC.transitioningDelegate = self
         present(detailVC, animated: true, completion: nil)
     }
@@ -299,7 +313,9 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.frame.size
+        var size = collectionView.frame.size
+        size.height -= 4
+        return size
     }
 
     internal func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -339,9 +355,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
             helpButton.isAccessibilityElement = true
             helpButton.accessibilityLabel = "Hjälpruta med instruktioner"
             
-            selectedImageView?.isAccessibilityElement = true
-            selectedImageView?.accessibilityLabel = "Klicka på bild för att zoom"
-            
             pageControl.isAccessibilityElement = true
             pageControl.accessibilityLabel = "Bilder att bläddra mellan"
             
@@ -356,16 +369,16 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 extension ImagesViewController: UIViewControllerTransitioningDelegate {
 
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let presentingFrame = presenting.view.frame
-        let scaleFactor: CGFloat = (presentingFrame.width - 2 * (selectedImageView?.frame.minX)!) / presentingFrame.width
-        transition.originFrame = CGRect(x: (selectedImageView?.frame.minX)!,
-                                        y: (presentingFrame.height - (presentingFrame.height * scaleFactor)) / 2,
-                                        width: (selectedImageView?.frame.width)!,
-                                        height: presentingFrame.height * scaleFactor)
+        
+        transition.photoView = selectedCell?.photoView
         transition.presenting = true
+        
+        transition.dismissCompletion = {
+            self.selectedCell?.photoView.isHidden = false
+        }
         return transition
     }
-
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.presenting = false
         return transition

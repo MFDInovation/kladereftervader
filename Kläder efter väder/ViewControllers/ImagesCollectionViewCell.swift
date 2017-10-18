@@ -222,12 +222,18 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
     // MARK: - UITableViewDelegate
 
+    internal func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        // Error images should not be selectable (zoomable)
+        if clothing == Clothing.errorGPS || clothing == Clothing.errorNetwork {
+            return nil
+        }
+        return indexPath
+    }
+    
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ImageTableViewCell
-        if let imageView = cell.photoView {
-            let imagesVC = parentViewController() as! ImagesViewController
-            imagesVC.showZoomViewControllerWithImage(imageView: imageView)
-        }
+        let imagesVC = parentViewController() as! ImagesViewController
+        imagesVC.showZoomViewControllerForCell(cell: cell)
         tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: false)
     }
 

@@ -27,6 +27,9 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
         super.awakeFromNib()
         selectionStyle = .none
 
+        photoView?.isAccessibilityElement = true
+        photoView?.accessibilityLabel = "Klicka på bild för att zoom"
+        
         if constants.showDebugBorders {
             contentView.layer.borderColor = UIColor.green.cgColor
             contentView.layer.borderWidth = 1.0

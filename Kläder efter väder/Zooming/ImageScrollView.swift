@@ -62,8 +62,6 @@ open class ImageScrollView: UIScrollView {
         decelerationRate = UIScrollViewDecelerationRateFast
         delegate = self
 
-        zoomView?.isAccessibilityElement = true
-        zoomView?.accessibilityLabel = "Bilden"
 //        NotificationCenter.default.addObserver(self, selector: #selector(ImageScrollView.changeOrientationNotification), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
     }
 

@@ -17,28 +17,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.accessibilityLanguage = "sv-SE"
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        if var topController = UIApplication.shared.keyWindow?.rootViewController {
-            while let presentedViewController = topController.presentedViewController {
-                topController = presentedViewController
-            }
-            if let topController = topController as? MainViewController{
-                topController.stopAnimations()
-            }
-        }
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        if var topController = UIApplication.shared.keyWindow?.rootViewController {
-            while let presentedViewController = topController.presentedViewController {
-                topController = presentedViewController
-            }
-            if let topController = topController as? MainViewController{
-                topController.restartAnimations()
-            }
-        }
-    }
-
 }
 
