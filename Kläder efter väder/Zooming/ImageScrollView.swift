@@ -161,7 +161,6 @@ open class ImageScrollView: UIScrollView {
     }
 
     fileprivate func configureImageForSize(_ size: CGSize) {
-        //        print("configureImageForSize: \(size)")
         imageSize = size
         contentSize = imageSize
         setMaxMinZoomScalesForCurrentBounds()

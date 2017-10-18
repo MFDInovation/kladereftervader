@@ -81,7 +81,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
             let imagePaths = ClothesImageHandler.shared.getImagePathsFor(clothes)
             let clothesData = ClothesData(clothing: clothes, imagePaths: imagePaths)
             data.append(clothesData)
-
         }
 
         collectionView?.reloadData()
@@ -142,7 +141,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
     
-    
     // MARK: - Show errors
     
     func showNetworkError() {
@@ -186,7 +184,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         alertContentView.alpha = 1
         alertContentView.backgroundColor = UIColor.white
         alertContentView.layer.cornerRadius = 10
-        alertContentView.alpha = 1
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         alert.isAccessibilityElement = true
