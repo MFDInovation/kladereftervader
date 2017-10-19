@@ -27,8 +27,8 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
         super.awakeFromNib()
         selectionStyle = .none
 
-        photoView?.isAccessibilityElement = true
-        photoView?.accessibilityLabel = "Klicka på bild för att zoom"
+        photoView.isAccessibilityElement = true
+        photoView.accessibilityLabel = "Egen bild. Klicka för att zooma."
         
         if constants.showDebugBorders {
             contentView.layer.borderColor = UIColor.green.cgColor
@@ -44,6 +44,8 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
     func configureWithClothing(clothing: Clothing, manageMode: Bool) {
         let image = clothing.image
         photoView.image = image
+        photoView.isAccessibilityElement = true
+        photoView.accessibilityLabel = clothing.rawValue
         self.manageMode = manageMode
     }
 

@@ -172,11 +172,9 @@ class MainViewController: UIViewController {
     func loadAccessibility(){
         if #available(iOS 10.0, *) {
             imageView.isAccessibilityElement = true
-            imageView.accessibilityLabel = "Klicka för att zooma"
             
             temperatureLabel.adjustsFontForContentSizeCategory = true
             temperatureLabel.isAccessibilityElement = true
-            temperatureLabel.accessibilityLabel = "Temperatur: \(currentWeather?.temperature ?? 0)"
         } else {
             // Fallback on earlier versions
         }
@@ -184,7 +182,6 @@ class MainViewController: UIViewController {
 
     private func updateAccessibilityLabelsForWeather(_ weather: Weather) {
         imageView.accessibilityLabel = weather.symbol.stringRepresentation()
-//        containerView.accessibilityLabel = currentClothes.rawValue  //???
-        temperatureLabel.accessibilityValue = "Temperatur: \(Int(round(weather.temperature)))°"
+        temperatureLabel.accessibilityLabel = "Temperatur: \(Int(round(weather.temperature)))°"
     }
 }
