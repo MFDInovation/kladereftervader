@@ -104,7 +104,7 @@ enum WeatherSymbol{
         switch self {
         case .ClearSky: return "Klart"
         case .NearlyclearSky: return "Mest klart"
-        case .Variablecloudiness: return "Växlande molnlighet"
+        case .Variablecloudiness: return "Växlande molnighet"
         case .HalfclearSky: return "Halvklart"
         case .CloudySky: return "Molnigt"
         case .Overcast: return "Mulet"
