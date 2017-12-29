@@ -220,7 +220,7 @@
 				TargetAttributes = {
 					DA4A90AA1DC733E500636ED1 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = GJCZ442875;
+						DevelopmentTeam = T6NBEC8R8B;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -408,7 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJCZ442875;
+				DEVELOPMENT_TEAM = T6NBEC8R8B;
 				INFOPLIST_FILE = "Kläder efter väder/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -427,7 +427,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJCZ442875;
+				DEVELOPMENT_TEAM = T6NBEC8R8B;
 				INFOPLIST_FILE = "Kläder efter väder/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
