@@ -24,16 +24,19 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     var manageMode: Bool = false
     var weather: Weather? {
         didSet {
-            data = []
-            loadData()
+            if !manageMode {
+                data = []
+                loadData()
+            }
         }
     }
+
+    private var viewDidLayoutSubviewsForTheFirstTime = true
 
     private var data: Array<ClothesData> = []
     private var currentIndex: Int = 0 {
         didSet {
             updateNavigationButtons()
-            scrollToIndex(index: currentIndex)
         }
     }
 
@@ -63,6 +66,18 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        if !manageMode {return}
+
+        // Make sure this is the first time, else return
+        guard viewDidLayoutSubviewsForTheFirstTime == true else {return}
+
+        jumpToCurrentWeather()
+        viewDidLayoutSubviewsForTheFirstTime = false
+    }
+
 
     // MARK: - Data
 
@@ -75,7 +90,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
                 let clothingData = ClothesData(clothing: clothing, imagePaths: imagePaths)
                 data.append(clothingData)
             }
-            // TODO: scroll to current weather?
         } else if weather != nil {
             let clothes = Clothing.create(from: weather!)
             let imagePaths = ClothesImageHandler.shared.getImagePathsFor(clothes)
@@ -165,6 +179,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ImagesVC") as! ImagesViewController
         controller.manageMode = true
+        controller.weather = weather
         present(controller, animated: true, completion: nil)
     }
 
@@ -236,19 +251,38 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - Scrolling
 
-    private func scrollToIndex(index: Int) {
-        collectionView?.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+    private func scrollToIndex(index: Int, animated: Bool) {
+        collectionView?.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: animated)
+    }
+
+    private func scrollToCurrentIndex(animated: Bool) {
+        scrollToIndex(index: currentIndex, animated: animated)
+    }
+
+    private func jumpToCurrentWeather() {
+
+        if !manageMode {return}
+
+        // In manage mode, show cell for current weather
+        if let currentWeather = weather {
+            let clothingForCurrentWeather = Clothing.create(from: currentWeather)
+            let indexForCurrentWeather = Clothing.allValues .index(of: clothingForCurrentWeather)
+            currentIndex = indexForCurrentWeather!
+            scrollToCurrentIndex(animated: false)
+        }
     }
 
     @IBAction func scrollRight() {
         if canScrollRight() {
             currentIndex += 1
+            scrollToCurrentIndex(animated: true)
         }
     }
 
     @IBAction func scrollLeft() {
         if canScrollLeft() {
             currentIndex -= 1
+            scrollToCurrentIndex(animated: true)
         }
     }
 
