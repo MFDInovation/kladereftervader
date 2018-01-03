@@ -58,7 +58,9 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         setupButtons()
         updateNavigationButtons()
         loadAccessibility()
-        loadData()
+        if manageMode {
+            loadData()
+        }
 
         if constants.showDebugBorders {
             collectionView.layer.borderColor = UIColor.red.cgColor
