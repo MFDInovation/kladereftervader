@@ -32,17 +32,17 @@ class ZoomTransitioningDelegate: NSObject
     func configureViews(for state: TransitionState, containerView: UIView, backgroundViewController: UIViewController, viewsInBackground: ZoomingViews, viewsInForeground: ZoomingViews, snapshotViews: ZoomingViews)
     {
         switch state {
-        case .initial:
-            backgroundViewController.view.transform = CGAffineTransform.identity
-            backgroundViewController.view.alpha = 1
-            
-            snapshotViews.imageView.frame = containerView.convert(viewsInBackground.imageView.frame, from: viewsInBackground.imageView.superview)
-            
-        case .final:
-            backgroundViewController.view.transform = CGAffineTransform(scaleX: backgroundScale, y: backgroundScale)
-            backgroundViewController.view.alpha = 0
-            
-            snapshotViews.imageView.frame = containerView.convert(viewsInForeground.imageView.frame, from: viewsInForeground.imageView.superview)
+            case .initial:
+                backgroundViewController.view.transform = CGAffineTransform.identity
+                backgroundViewController.view.alpha = 1
+
+                snapshotViews.imageView.frame = containerView.convert(viewsInBackground.imageView.frame, from: viewsInBackground.imageView.superview)
+
+            case .final:
+                backgroundViewController.view.transform = CGAffineTransform(scaleX: backgroundScale, y: backgroundScale)
+                backgroundViewController.view.alpha = 0
+                
+                snapshotViews.imageView.frame = containerView.convert(viewsInForeground.imageView.frame, from: viewsInForeground.imageView.superview)
         }
     }
 }

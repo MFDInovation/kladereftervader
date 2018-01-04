@@ -9,7 +9,7 @@
 import UIKit
 // View controller responsible for the main view.
 class MainViewController: UIViewController {
-    
+
     let smhi = SMHIAPI()
     let gps = GPS()
     
@@ -74,42 +74,42 @@ class MainViewController: UIViewController {
     }
     
     //Loads and displays the current weather
-    func loadWeather(){
+    func loadWeather() {
         imageView.image = nil
         temperatureLabel.text = ""
         activityIndicator.startAnimating()
         isLoadingWeather = true
         
         gps.findLocation {
-            switch $0{
-            case .success(let location):
-                self.smhi.getUpcomingWeather(location: location) { result in
-                    OperationQueue.main.addOperation {
-                        self.weatherAnimation.clear()
-                        self.activityIndicator.stopAnimating()
-                        switch result {
-                        case .success(let weather):
-                            self.lastLoadTime = Date()
-                            self.currentWeather = weather
-                            self.showWeather(weather)
-                            self.isLoadingWeather = false
-                        case .error(_):
-                            self.currentWeather = nil
-                            // Reset imagesViewController
-                            self.showWeather(self.currentWeather)
-                            self.imagesViewController?.showNetworkError()
-                            self.isLoadingWeather = false
+            switch $0 {
+                case .success(let location):
+                    self.smhi.getUpcomingWeather(location: location) { result in
+                        OperationQueue.main.addOperation {
+                            self.weatherAnimation.clear()
+                            self.activityIndicator.stopAnimating()
+                            switch result {
+                                case .success(let weather):
+                                    self.lastLoadTime = Date()
+                                    self.currentWeather = weather
+                                    self.showWeather(weather)
+                                    self.isLoadingWeather = false
+                                case .error(_):
+                                    self.currentWeather = nil
+                                    // Reset imagesViewController
+                                    self.showWeather(self.currentWeather)
+                                    self.imagesViewController?.showNetworkError()
+                                    self.isLoadingWeather = false
+                            }
                         }
                     }
-                }
-            case .error(_):
-                OperationQueue.main.addOperation {
-                    self.activityIndicator.stopAnimating()
-                    self.currentWeather = nil
-                    self.showWeather(self.currentWeather)
-                    self.imagesViewController?.showGPSError()
-                    self.isLoadingWeather = false
-                }
+                case .error(_):
+                    OperationQueue.main.addOperation {
+                        self.activityIndicator.stopAnimating()
+                        self.currentWeather = nil
+                        self.showWeather(self.currentWeather)
+                        self.imagesViewController?.showGPSError()
+                        self.isLoadingWeather = false
+                    }
             }
         }
     }

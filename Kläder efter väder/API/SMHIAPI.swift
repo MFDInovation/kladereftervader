@@ -94,15 +94,15 @@ class SMHIAPI {
     
     func getWeather(location: CLLocation, start: Date, end: Date, _ callback: @escaping (Response<Weather>) -> Void){
         networking.getJson(url: weatherUrl(location: location)!){
-            switch $0{
-            case .success(let json):
-                if let weather = Weather(with: json,start: start,end: end){
-                    callback(.success(weather))
-                }else{
-                    callback(.error(NSError(domain: "Weather", code: 1, userInfo: [NSLocalizedDescriptionKey:"Could not parse results from server"])))
-                }
-            case .error(let error):
-                callback(.error(error))
+            switch $0 {
+                case .success(let json):
+                    if let weather = Weather(with: json,start: start,end: end) {
+                        callback(.success(weather))
+                    } else {
+                        callback(.error(NSError(domain: "Weather", code: 1, userInfo: [NSLocalizedDescriptionKey:"Could not parse results from server"])))
+                    }
+                case .error(let error):
+                    callback(.error(error))
             }
         }
     }

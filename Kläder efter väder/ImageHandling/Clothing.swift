@@ -47,41 +47,40 @@ enum Clothing: String {
     var image: UIImage {
         get {
             switch self {
-            case .mycketKallt: return #imageLiteral(resourceName: "minus20")
-            case .mycketKalltSno: return #imageLiteral(resourceName: "minus20")
-            case .kallt: return #imageLiteral(resourceName: "minus10")
-            case .kalltSno: return #imageLiteral(resourceName: "minus10")
-            case .nollgradigtMinus: return #imageLiteral(resourceName: "minus10")
-            case .nollgradigtMinusSno: return #imageLiteral(resourceName: "minus10")
-            case .nollgradigtPlus: return #imageLiteral(resourceName: "plus0")
-            case .nollgradigtPlusRegn: return #imageLiteral(resourceName: "plus0N")
-            case .kyligt: return #imageLiteral(resourceName: "plus10")
-            case .kyligtRegn: return #imageLiteral(resourceName: "plus10N")
-            case .varmt: return #imageLiteral(resourceName: "plus20")
-            case .varmtRegn: return #imageLiteral(resourceName: "plus20N")
-            case .hett: return #imageLiteral(resourceName: "plus25")
-            case .hettRegn: return #imageLiteral(resourceName: "plus25N")
-            case .errorNetwork: return #imageLiteral(resourceName: "internet_error")
-            case .errorGPS: return #imageLiteral(resourceName: "gps_error")
+                case .mycketKallt: return #imageLiteral(resourceName: "minus20")
+                case .mycketKalltSno: return #imageLiteral(resourceName: "minus20")
+                case .kallt: return #imageLiteral(resourceName: "minus10")
+                case .kalltSno: return #imageLiteral(resourceName: "minus10")
+                case .nollgradigtMinus: return #imageLiteral(resourceName: "minus10")
+                case .nollgradigtMinusSno: return #imageLiteral(resourceName: "minus10")
+                case .nollgradigtPlus: return #imageLiteral(resourceName: "plus0")
+                case .nollgradigtPlusRegn: return #imageLiteral(resourceName: "plus0N")
+                case .kyligt: return #imageLiteral(resourceName: "plus10")
+                case .kyligtRegn: return #imageLiteral(resourceName: "plus10N")
+                case .varmt: return #imageLiteral(resourceName: "plus20")
+                case .varmtRegn: return #imageLiteral(resourceName: "plus20N")
+                case .hett: return #imageLiteral(resourceName: "plus25")
+                case .hettRegn: return #imageLiteral(resourceName: "plus25N")
+                case .errorNetwork: return #imageLiteral(resourceName: "internet_error")
+                case .errorGPS: return #imageLiteral(resourceName: "gps_error")
             }
         }
     }
  
     static func create(from weather:Weather) -> Clothing {
         switch weather.temperature {
-        case (-100)..<(-15): return (weather.rainfall > 0) ? .mycketKalltSno : .mycketKallt
-        case (-15)..<(-5): return (weather.rainfall > 0) ? .kalltSno : .kallt
-        case (-5)..<0: return (weather.rainfall > 0) ? .nollgradigtMinusSno : .nollgradigtMinus
-        case 0..<(5): return (weather.rainfall > 0) ? .nollgradigtPlusRegn : .nollgradigtPlus
-        case (5)..<(15): return (weather.rainfall > 0) ? .kyligtRegn : .kyligt
-        case (15)..<(25): return (weather.rainfall > 0) ? .varmtRegn : .varmt
-        case (25)..<(100): return (weather.rainfall > 0) ? .hettRegn : .hett
-        default:
-            return .nollgradigtPlusRegn
+            case (-100)..<(-15): return (weather.rainfall > 0) ? .mycketKalltSno : .mycketKallt
+            case (-15)..<(-5): return (weather.rainfall > 0) ? .kalltSno : .kallt
+            case (-5)..<0: return (weather.rainfall > 0) ? .nollgradigtMinusSno : .nollgradigtMinus
+            case 0..<(5): return (weather.rainfall > 0) ? .nollgradigtPlusRegn : .nollgradigtPlus
+            case (5)..<(15): return (weather.rainfall > 0) ? .kyligtRegn : .kyligt
+            case (15)..<(25): return (weather.rainfall > 0) ? .varmtRegn : .varmt
+            case (25)..<(100): return (weather.rainfall > 0) ? .hettRegn : .hett
+            default:
+                return .nollgradigtPlusRegn
         }
     }
 }
-
 
 
 

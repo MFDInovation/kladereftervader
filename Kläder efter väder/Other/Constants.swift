@@ -23,36 +23,36 @@ struct constants {
         var clothingName = String()
         if let clothing = clothingValue {
             switch clothing {
-            case .mycketKallt:
-                clothingName = "Under -15°"
-            case .mycketKalltSno :
-                clothingName = "Under -15°, snö"
-            case .kallt:
-                clothingName = "-15° till -5°"
-            case .kalltSno:
-                clothingName = "-15° till -5°, snö"
-            case .nollgradigtMinus:
-                clothingName = "-5° till 0°"
-            case .nollgradigtMinusSno:
-                clothingName = "-5° till 0°, snö"
-            case .nollgradigtPlus:
-                clothingName = "0° till 5°" 
-            case .nollgradigtPlusRegn:
-                clothingName = "0° till 5°, regn"
-            case .kyligt:
-                clothingName = "5° till 15°"
-            case .kyligtRegn:
-                clothingName = "5° till 15°, regn"
-            case .varmt:
-                clothingName = "15° till 25°"
-            case .varmtRegn:
-                clothingName = "15° till 25°, regn"
-            case .hett:
-                clothingName = "Över 25°"
-            case .hettRegn:
-                clothingName = "Över 25°, regn"
-            case .errorNetwork, .errorGPS:
-                clothingName = "Okänt"
+                case .mycketKallt:
+                    clothingName = "Under -15°"
+                case .mycketKalltSno :
+                    clothingName = "Under -15°, snö"
+                case .kallt:
+                    clothingName = "-15° till -5°"
+                case .kalltSno:
+                    clothingName = "-15° till -5°, snö"
+                case .nollgradigtMinus:
+                    clothingName = "-5° till 0°"
+                case .nollgradigtMinusSno:
+                    clothingName = "-5° till 0°, snö"
+                case .nollgradigtPlus:
+                    clothingName = "0° till 5°" 
+                case .nollgradigtPlusRegn:
+                    clothingName = "0° till 5°, regn"
+                case .kyligt:
+                    clothingName = "5° till 15°"
+                case .kyligtRegn:
+                    clothingName = "5° till 15°, regn"
+                case .varmt:
+                    clothingName = "15° till 25°"
+                case .varmtRegn:
+                    clothingName = "15° till 25°, regn"
+                case .hett:
+                    clothingName = "Över 25°"
+                case .hettRegn:
+                    clothingName = "Över 25°, regn"
+                case .errorNetwork, .errorGPS:
+                    clothingName = "Okänt"
             }
         }
         return clothingName
