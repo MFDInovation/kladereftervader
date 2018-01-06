@@ -40,12 +40,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
 
-    private let imageToBottomSpacing : CGFloat = 100
-
-    // 'Manage Images' UI
-    private let headerHeight : CGFloat = 60
-    private let headerPadding : CGFloat = 16
-
     // Custom transition (for zoom view controller)
     let transition = Animator()
     var selectedCell: ImageTableViewCell?

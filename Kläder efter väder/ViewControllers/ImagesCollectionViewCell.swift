@@ -27,11 +27,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
     private var replaceImageIndexPath: IndexPath?
 
-    // 'Manage Images' UI
-    private let headerHeight : CGFloat = 60
-    private let headerPadding : CGFloat = 16
-
-
     override func awakeFromNib() {
         super.awakeFromNib()
 
