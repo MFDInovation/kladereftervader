@@ -174,10 +174,10 @@ class MainViewController: UIViewController {
 
     // MARK: - Accessibility
 
-    func loadAccessibility(){
+    private func loadAccessibility() {
         if #available(iOS 10.0, *) {
             imageView.isAccessibilityElement = true
-            
+
             temperatureLabel.adjustsFontForContentSizeCategory = true
             temperatureLabel.isAccessibilityElement = true
         } else {

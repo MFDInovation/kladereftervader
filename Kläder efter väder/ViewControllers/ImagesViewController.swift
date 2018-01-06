@@ -256,7 +256,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
     private func jumpToCurrentWeather() {
-
         if !manageMode {return}
 
         // In manage mode, show cell for current weather
@@ -371,7 +370,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - Accessibility
     
-    func loadAccessibility(){
+    private func loadAccessibility() {
         if #available(iOS 10.0, *) {
             doneButton.isAccessibilityElement = true
             doneButton.accessibilityLabel = "Avsluta till huvudskärm"

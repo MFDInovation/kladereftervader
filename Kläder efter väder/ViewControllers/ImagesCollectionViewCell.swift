@@ -24,7 +24,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
     private var data: ClothesData?
     private var clothing: Clothing?
     private var imagePath: String?
-
     private var replaceImageIndexPath: IndexPath?
 
     override func awakeFromNib() {
