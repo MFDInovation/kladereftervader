@@ -28,11 +28,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         temperatureLabel.backgroundColor = UIColor.init(white: 0.9, alpha: 1)
         loadAccessibility()
-        
-        // Listen for notifications
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: .UIApplicationWillResignActive, object: nil)
+        addObservers()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -164,6 +160,15 @@ class MainViewController: UIViewController {
             let destination = segue.destination as? ImagesViewController
             imagesViewController = destination
         }
+    }
+
+
+    // MARK: - Observers
+
+    private func addObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: .UIApplicationWillResignActive, object: nil)
     }
 
 
