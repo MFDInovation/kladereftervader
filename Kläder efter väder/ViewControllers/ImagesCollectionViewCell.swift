@@ -212,7 +212,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         return 1
     }
 
-
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if data != nil {
             return 1 + data!.imagePaths.count
@@ -264,13 +263,13 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
     // MARK: - ImageTableViewCellDelegate
 
-    func didPressReplaceImageButton(cell: UITableViewCell) {
+    internal func didPressReplaceImageButton(cell: UITableViewCell) {
         let indexPath = tableView.indexPath(for: cell)
         replaceImageIndexPath = indexPath
         pickImage()
     }
 
-    func didPressDeleteImageButton(cell: UITableViewCell) {
+    internal func didPressDeleteImageButton(cell: UITableViewCell) {
         // Ask user if image should be deleted
         let alert = UIAlertController(title: "Vill du ta bort bilden?", message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "Ta bort", style: .default, handler: { action in

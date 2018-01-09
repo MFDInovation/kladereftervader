@@ -242,10 +242,8 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - Visible cell
 
-    // Only one cell should be on screen at once, so we can do the following.
-
     private func visibleCellIndexPath() -> IndexPath {
-        // Find the center point for the current image withing the collection view
+        // Find the center point for the current image within the collection view
         let centerX = collectionView.contentOffset.x + collectionView.frame.width/2
         // Translate point to an index path
         return collectionView.indexPathForItem(at: CGPoint(x: centerX, y: collectionView.center.y))!
@@ -313,11 +311,11 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - UICollectionViewDataSource
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    internal func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         if data.count == 0 {
             return 0
@@ -333,7 +331,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         return clothesData!.imagePaths.count + 1
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImagesCollectionViewCell
 
@@ -361,7 +359,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - UICollectionViewDelegate
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
     }
 
@@ -378,7 +376,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         guard let indexPath = collectionView.indexPathsForVisibleItems.last, let layoutAttributes = flowLayout.layoutAttributesForItem(at: indexPath) else {
             return proposedContentOffset
-            }
+        }
         return CGPoint(x: layoutAttributes.center.x - (layoutAttributes.size.width / 2.0) - (flowLayout.minimumLineSpacing / 2.0), y: 0)
     }
 
@@ -386,7 +384,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - UIScrollViewDelegate
 
     // When scrolling with pan gesture ends
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentIndex = visibleCellIndex()
     }
 
