@@ -10,6 +10,8 @@ import UIKit
 
 class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { get { return .all } }
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var menuStackView: UIStackView!
