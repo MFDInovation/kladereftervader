@@ -131,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="If2-B7-Nfl">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1085"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="1065"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ERY-qe-EnX">
                                     <size key="itemSize" width="765" height="1059"/>
@@ -141,18 +141,18 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0D6-pj-y4j" customClass="ImagesCollectionViewCell" customModule="Kla_der_efter_va_der" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="13" width="765" height="1059"/>
+                                        <rect key="frame" x="0.0" y="3" width="765" height="1059"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="765" height="1059"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sab-XM-7rW">
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sab-XM-7rW">
                                                     <rect key="frame" x="0.0" y="0.0" width="765" height="1059"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="336" id="Fdx-mz-zqj" customClass="ImageTableViewCell" customModule="Kla_der_efter_va_der" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="28" width="765" height="336"/>
+                                                            <rect key="frame" x="0.0" y="1" width="765" height="336"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fdx-mz-zqj" id="wj8-MV-KyM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="765" height="336"/>
@@ -176,7 +176,7 @@
                                                             </connections>
                                                         </tableViewCell>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditableImageCell" rowHeight="336" id="TQD-Qk-AhV" customClass="ImageTableViewCell" customModule="Kla_der_efter_va_der" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="364" width="765" height="336"/>
+                                                            <rect key="frame" x="0.0" y="337" width="765" height="336"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TQD-Qk-AhV" id="Czc-4Y-xfq">
                                                                 <rect key="frame" x="0.0" y="0.0" width="765" height="336"/>
@@ -413,7 +413,7 @@
                             <constraint firstAttribute="trailing" secondItem="If2-B7-Nfl" secondAttribute="trailing" id="Of6-F5-eO4"/>
                             <constraint firstItem="If2-B7-Nfl" firstAttribute="leading" secondItem="xT4-RV-tqr" secondAttribute="leading" id="asg-WQ-56v"/>
                             <constraint firstAttribute="bottom" secondItem="bE7-Nm-viV" secondAttribute="bottom" constant="8" id="fxN-4C-LvB"/>
-                            <constraint firstItem="If2-B7-Nfl" firstAttribute="top" secondItem="xT4-RV-tqr" secondAttribute="top" id="tJt-Q5-tBH"/>
+                            <constraint firstItem="If2-B7-Nfl" firstAttribute="top" secondItem="53j-DY-kWQ" secondAttribute="top" id="tJt-Q5-tBH"/>
                             <constraint firstItem="jz9-xc-SHG" firstAttribute="centerX" secondItem="53j-DY-kWQ" secondAttribute="centerX" id="tKK-yz-jBu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="53j-DY-kWQ"/>

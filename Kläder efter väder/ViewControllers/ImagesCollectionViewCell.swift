@@ -26,6 +26,8 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
     private var imagePath: String?
     private var replaceImageIndexPath: IndexPath?
 
+    private var currentIndex: Int = 0
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -176,6 +178,34 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
     }
 
 
+    // MARK: - Visible cell
+
+    private func visibleCellIndexPath() -> IndexPath {
+        // Find the center point (y) for the current image within the table view
+        let centerY = tableView.contentOffset.y + tableView.frame.height/2
+        // Translate point to an index path
+        return tableView.indexPathForRow(at: CGPoint(x: tableView.center.x, y: centerY))!
+    }
+
+    private func visibleCellIndex() -> Int {
+        let indexPath = visibleCellIndexPath()
+        return indexPath.row
+    }
+
+    private func visibleCell() -> UITableViewCell? {
+        let indexPath = visibleCellIndexPath()
+        let cell = tableView.cellForRow(at: indexPath)
+        return cell
+    }
+
+
+    // MARK: - Scrolling
+
+    func scrollToCurrentIndex(animated: Bool) {
+        tableView.scrollToRow(at: IndexPath.init(row: currentIndex, section: 0), at: .top, animated: animated)
+    }
+
+
     // MARK: - Table view data source
 
     internal func numberOfSections(in tableView: UITableView) -> Int {
@@ -261,7 +291,8 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
     // MARK: - UIScrollViewDelegate
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        currentIndex = visibleCellIndex()
         updateDownArrow()
     }
 

@@ -82,6 +82,14 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewWillTransition(to: size, with: coordinator)
         collectionView.invalidateIntrinsicContentSize()
         collectionView.collectionViewLayout.invalidateLayout()
+
+        if !manageMode {return}
+
+        coordinator.animate(alongsideTransition: { ctx in
+            if let cell = self.visibleCell() {
+                cell.scrollToCurrentIndex(animated: true)
+            }
+        }, completion:nil)
     }
 
 
