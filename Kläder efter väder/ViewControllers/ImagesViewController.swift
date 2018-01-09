@@ -389,6 +389,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         return (indexPath.item == collectionView.numberOfItems(inSection: indexPath.section)-1)
     }
 
+
     // MARK: - Accessibility
     
     private func loadAccessibility() {
