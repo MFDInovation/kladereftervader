@@ -17,5 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.accessibilityLanguage = "sv-SE"
         return true
     }
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return constants.isLandscapeEnabled() ? .all : [.portrait, .portraitUpsideDown]
+    }
+
 }
 

@@ -32,6 +32,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
     private var viewDidLayoutSubviewsForTheFirstTime = true
+    private var loadFirstCellForTheFirstTime = true
 
     private var data: Array<ClothesData> = []
     private var currentIndex: Int = 0 {
@@ -62,6 +63,9 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
 
+
+    // MARK: - Layout
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -72,6 +76,12 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
         jumpToCurrentWeather()
         viewDidLayoutSubviewsForTheFirstTime = false
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.invalidateIntrinsicContentSize()
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 
 
@@ -320,6 +330,11 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImagesCollectionViewCell
 
         if manageMode {
+            // There seems to be a bug causing the first cell to be slightly misplaced. To fix it...
+            if loadFirstCellForTheFirstTime {
+                collectionView.collectionViewLayout.invalidateLayout()
+                loadFirstCellForTheFirstTime = false
+            }
             cell.configureWithClothesData(data: data[indexPath.row])
         } else {
             let isLast = isLastItem(indexPath: indexPath)
@@ -339,9 +354,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var size = collectionView.frame.size
-        size.height -= 4
-        return size
+        return collectionView.frame.size
     }
 
     internal func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -351,6 +364,14 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
             myCell.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
             myCell.updateDownArrow()
         }
+    }
+
+    internal func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        guard let indexPath = collectionView.indexPathsForVisibleItems.last, let layoutAttributes = flowLayout.layoutAttributesForItem(at: indexPath) else {
+            return proposedContentOffset
+            }
+        return CGPoint(x: layoutAttributes.center.x - (layoutAttributes.size.width / 2.0) - (flowLayout.minimumLineSpacing / 2.0), y: 0)
     }
 
 

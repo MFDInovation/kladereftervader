@@ -57,4 +57,8 @@ struct constants {
         }
         return clothingName
     }
+
+    static func isLandscapeEnabled() -> Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad  // Only iPads support landscape orientation
+    }
 }
