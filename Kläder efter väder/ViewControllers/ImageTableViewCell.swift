@@ -19,7 +19,6 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
 
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var photoTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var changeImageButton: UIButton!
     @IBOutlet weak var deleteImageButton: UIButton!
 
 
@@ -65,9 +64,6 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
     private func loadAccessibility() {
         deleteImageButton.isAccessibilityElement = true
         deleteImageButton.accessibilityLabel = "Ta bort bild"
-        
-        changeImageButton.isAccessibilityElement = true
-        changeImageButton.accessibilityLabel = "Ändra bild"
     }
     
 
@@ -80,10 +76,6 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
 
     // MARK: - Actions
 
-    @IBAction func didPressChangeImageButton() {
-        delegate?.didPressReplaceImageButton(cell: self)
-    }
-
     @IBAction func didPressDeleteImageButton() {
         delegate?.didPressDeleteImageButton(cell: self)
     }
@@ -92,6 +84,5 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
 
 
 protocol ImageTableViewCellDelegate : class {
-    func didPressReplaceImageButton(cell: UITableViewCell)
     func didPressDeleteImageButton(cell: UITableViewCell)
 }

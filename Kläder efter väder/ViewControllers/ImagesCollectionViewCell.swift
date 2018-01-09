@@ -24,7 +24,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
     private var data: ClothesData?
     private var clothing: Clothing?
     private var imagePath: String?
-    private var replaceImageIndexPath: IndexPath?
 
     private var currentIndex: Int = 0
 
@@ -126,7 +125,7 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
     }
 
 
-    // MARK: - Add/replace image
+    // MARK: - Add image
 
     func pickImage() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -149,32 +148,20 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         picker.dismiss(animated: true, completion: nil)
 
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-
-            // Add new image or replace an existing?
-            if replaceImageIndexPath == nil {
-                ClothesImageHandler.shared.addImageFor((data?.clothing)!, image: image)
-                let imagePath = ClothesImageHandler.shared.getImagePathsFor((data?.clothing)!).last
-                data?.imagePaths.append(imagePath!)
-                let newIndexPath = IndexPath(row: (data?.imagePaths.count)!, section: 0)
-                if !tableView.isScrollEnabled {
-                    tableView.isScrollEnabled = true
-                }
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-                tableView.scrollToRow(at: newIndexPath, at: .top, animated: true)
-
-            } else {
-                let index = (replaceImageIndexPath?.row)! - 1
-                ClothesImageHandler.shared.replaceImageFor((data?.clothing)!, image: image, index: index)
-                let indexPaths = tableView.indexPathsForVisibleRows
-                tableView.reloadRows(at: indexPaths! , with: .automatic)
-                replaceImageIndexPath = nil
+            ClothesImageHandler.shared.addImageFor((data?.clothing)!, image: image)
+            let imagePath = ClothesImageHandler.shared.getImagePathsFor((data?.clothing)!).last
+            data?.imagePaths.append(imagePath!)
+            let newIndexPath = IndexPath(row: (data?.imagePaths.count)!, section: 0)
+            if !tableView.isScrollEnabled {
+                tableView.isScrollEnabled = true
             }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            tableView.scrollToRow(at: newIndexPath, at: .top, animated: true)
         }
     }
 
     internal func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        replaceImageIndexPath = nil
     }
 
 
@@ -262,12 +249,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
 
     // MARK: - ImageTableViewCellDelegate
-
-    internal func didPressReplaceImageButton(cell: UITableViewCell) {
-        let indexPath = tableView.indexPath(for: cell)
-        replaceImageIndexPath = indexPath
-        pickImage()
-    }
 
     internal func didPressDeleteImageButton(cell: UITableViewCell) {
         // Ask user if image should be deleted

@@ -231,7 +231,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
 
-    // MARK: - Add/replace image
+    // MARK: - Add image
 
     // User adds a new image to the app
     @IBAction private func addImage() {
