@@ -26,6 +26,9 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
         super.awakeFromNib()
         selectionStyle = .none
 
+        // Fix bg color on iOS 9
+        backgroundColor = UIColor.clear
+
         photoView.isAccessibilityElement = true
         photoView.accessibilityLabel = "Egen bild. Klicka för att zooma."
         
