@@ -234,6 +234,11 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
                 cell.configureWithImagePath(imagePath: (data?.imagePaths[indexPath.row-1])!, manageMode: manageMode)
                 cell.delegate = self
             }
+
+            if cell.deleteImageButton != nil {
+                cell.deleteImageButton.alpha = 0
+            }
+
         } else {
             if clothing != nil {
                 cell.configureWithClothing(clothing: clothing!, manageMode: manageMode)
@@ -289,6 +294,55 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
     internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentIndex = visibleCellIndex()
         updateDownArrow()
+
+        // Sometimes the "Delete Image" ("Ta bort") alpha hasn't been set - fix it here
+        let targetCell = visibleCell() as! ImageTableViewCell
+        if targetCell.deleteImageButton != nil && targetCell.deleteImageButton.alpha == 0 {
+            UIView.animate(withDuration: 0.5, animations: {
+                // Fade in "Delete" button for visible cell, fade out for other cells
+                for cell in self.tableView.visibleCells {
+                    if (cell == targetCell) {
+                        targetCell.deleteImageButton.alpha = 1
+                    } else {
+                        (cell as! ImageTableViewCell).deleteImageButton.alpha = 0
+                    }
+                }
+            })
+        }
+
+    }
+
+    internal func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if !manageMode { return }
+
+        // This is our custom 'paging', adjusting the final scrolling position to place the image just below the title
+        let targetOffset = targetContentOffset.pointee
+        let height = tableView.frame.size.height
+        let targetCenterY = targetOffset.y + (height/2)
+        let targetCellIndexPath = tableView.indexPathForRow(at: CGPoint(x: targetOffset.x, y: targetCenterY))
+        let targetCellFrame = tableView.rectForRow(at: targetCellIndexPath!)
+        targetContentOffset.pointee.y = targetCellFrame.origin.y
+
+        let targetCell = tableView.cellForRow(at: targetCellIndexPath!)
+        if targetCell == nil { return }
+        let targetImageCell = targetCell as! ImageTableViewCell
+
+        // Fade in "Delete" button for target cell, fade out for other cells
+        UIView.animate(withDuration: 0.5, animations: {
+            for cell in self.tableView.visibleCells {
+                if (cell == targetCell) {
+                    if targetImageCell.deleteImageButton != nil {
+                        targetImageCell.deleteImageButton.alpha = 1
+                    }
+                } else {
+                    let imageCell = cell as! ImageTableViewCell
+                    if imageCell.deleteImageButton != nil {
+                        imageCell.deleteImageButton.alpha = 0
+                    }
+                }
+            }
+        })
+
     }
 
 
