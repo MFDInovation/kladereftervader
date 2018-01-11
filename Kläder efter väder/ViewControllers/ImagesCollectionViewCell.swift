@@ -52,6 +52,7 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
     // MARK: - Layout
 
     func updateDownArrow() {
+        return
         if let indexPath = tableView.indexPathsForVisibleRows?.last {
             let lastItem = ((indexPath.row)+1 == tableView.numberOfRows(inSection: 0))
             arrowDownImageView.isHidden = lastItem
