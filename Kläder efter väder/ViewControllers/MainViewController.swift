@@ -41,6 +41,22 @@ class MainViewController: UIViewController {
     }
 
 
+    // MARK: - Layout
+
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+
+        if let width = imageView.image?.size.width, let height = imageView.image?.size.height {
+            let aspect = height/width
+            if aspect > 1.0 {
+                let offset = (imageView.bounds.size.width*aspect - imageView.bounds.size.height)/2.0
+                imageView.transform = CGAffineTransform(translationX: 0, y: (offset > 0 ? offset : 0))
+            }
+        }
+    }
+
+
     // MARK: - Background / Foreground
 
     @objc private func appDidBecomeActive() {
