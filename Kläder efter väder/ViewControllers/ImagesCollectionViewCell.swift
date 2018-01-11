@@ -76,11 +76,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         }
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        tableView.rowHeight = contentView.frame.size.height
-    }
-
 
     // MARK: - Configure
 
@@ -205,6 +200,25 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
             return 1 + data!.imagePaths.count
         }
         return 1
+    }
+
+    internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        // When the table view contains user content/images, we want to shrink the
+        // row height a bit so that the top edge of the next image is visible
+
+        let fullHeight = contentView.frame.size.height
+        let compactHeight = contentView.frame.size.height - 120
+
+        if manageMode {
+            if let count = data?.imagePaths.count {
+                if count > 0 {  // If table view contains any user images
+                    return compactHeight
+                }
+            }
+        }
+
+        return fullHeight
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
