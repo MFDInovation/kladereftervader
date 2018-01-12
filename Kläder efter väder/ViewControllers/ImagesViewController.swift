@@ -50,11 +50,17 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Setup UI
         view.backgroundColor = manageMode ? UIColor.white : UIColor.clear
+        collectionView.alpha = 0
+        pageControl.alpha = 0
+        navigationButtonsStackView.alpha = 0
         pageControl.numberOfPages = 0
         setupButtons()
         updateNavigationButtons()
         loadAccessibility()
+
         if manageMode {
             loadData()
         }
@@ -116,6 +122,13 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView?.reloadData()
         setupPageControl()
         updateNavigationButtons()
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.pageControl.alpha = 1
+            self.navigationButtonsStackView.alpha = 1
+            self.collectionView.alpha = 1
+        }, completion: nil)
+
     }
 
 
