@@ -87,7 +87,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
+
         collectionView.invalidateIntrinsicContentSize()
         collectionView.collectionViewLayout.invalidateLayout()
 
@@ -95,9 +95,11 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
         coordinator.animate(alongsideTransition: { ctx in
             if let cell = self.visibleCell() {
-                cell.scrollToCurrentIndex(animated: true)
+                cell.scrollToCurrentIndex(animated: false)
             }
         }, completion:nil)
+
+        super.viewWillTransition(to: size, with: coordinator)
     }
 
 
