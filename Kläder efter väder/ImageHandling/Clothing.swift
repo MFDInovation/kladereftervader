@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-enum Clothing: String{
+enum Clothing: String {
     
     case mycketKallt = "underställ, varma strumpor, täckbyxor, varm tröja, vinterkängor eller vinterstövlar, varm jacka, vintermössa, tjocka vantar, halsduk "
     case mycketKalltSno = "underställ, varma strumpor, täckbyxor, varm tröja, vinterkängor eller vinterstövlar, varm jacka, vintermössa, tjocka vantar, halsduk"
@@ -44,44 +44,43 @@ enum Clothing: String{
                             hett,
                             hettRegn]
     
-    var image: UIImage{
-        get{
+    var image: UIImage {
+        get {
             switch self {
-            case .mycketKallt: return #imageLiteral(resourceName: "minus20")
-            case .mycketKalltSno: return #imageLiteral(resourceName: "minus20")
-            case .kallt: return #imageLiteral(resourceName: "minus10")
-            case .kalltSno: return #imageLiteral(resourceName: "minus10")
-            case .nollgradigtMinus: return #imageLiteral(resourceName: "minus10")
-            case .nollgradigtMinusSno: return #imageLiteral(resourceName: "minus10")
-            case .nollgradigtPlus: return #imageLiteral(resourceName: "plus0")
-            case .nollgradigtPlusRegn: return #imageLiteral(resourceName: "plus0N")
-            case .kyligt: return #imageLiteral(resourceName: "plus10")
-            case .kyligtRegn: return #imageLiteral(resourceName: "plus10N")
-            case .varmt: return #imageLiteral(resourceName: "plus20")
-            case .varmtRegn: return #imageLiteral(resourceName: "plus20N")
-            case .hett: return #imageLiteral(resourceName: "plus25")
-            case .hettRegn: return #imageLiteral(resourceName: "plus25N")
-            case .errorNetwork: return #imageLiteral(resourceName: "internet_error")
-            case .errorGPS: return #imageLiteral(resourceName: "gps_error")
+                case .mycketKallt: return #imageLiteral(resourceName: "minus20")
+                case .mycketKalltSno: return #imageLiteral(resourceName: "minus20")
+                case .kallt: return #imageLiteral(resourceName: "minus10")
+                case .kalltSno: return #imageLiteral(resourceName: "minus10")
+                case .nollgradigtMinus: return #imageLiteral(resourceName: "minus10")
+                case .nollgradigtMinusSno: return #imageLiteral(resourceName: "minus10")
+                case .nollgradigtPlus: return #imageLiteral(resourceName: "plus0")
+                case .nollgradigtPlusRegn: return #imageLiteral(resourceName: "plus0N")
+                case .kyligt: return #imageLiteral(resourceName: "plus10")
+                case .kyligtRegn: return #imageLiteral(resourceName: "plus10N")
+                case .varmt: return #imageLiteral(resourceName: "plus20")
+                case .varmtRegn: return #imageLiteral(resourceName: "plus20N")
+                case .hett: return #imageLiteral(resourceName: "plus25")
+                case .hettRegn: return #imageLiteral(resourceName: "plus25N")
+                case .errorNetwork: return #imageLiteral(resourceName: "internet_error")
+                case .errorGPS: return #imageLiteral(resourceName: "gps_error")
             }
         }
     }
  
     static func create(from weather:Weather) -> Clothing {
         switch weather.temperature {
-        case (-100)..<(-15): return (weather.rainfall > 0) ? .mycketKalltSno : .mycketKallt
-        case (-15)..<(-5): return (weather.rainfall > 0) ? .kalltSno : .kallt
-        case (-5)..<0: return (weather.rainfall > 0) ? .nollgradigtMinusSno : .nollgradigtMinus
-        case 0..<(5): return (weather.rainfall > 0) ? .nollgradigtPlusRegn : .nollgradigtPlus
-        case (5)..<(15): return (weather.rainfall > 0) ? .kyligtRegn : .kyligt
-        case (15)..<(25): return (weather.rainfall > 0) ? .varmtRegn : .varmt
-        case (25)..<(100): return (weather.rainfall > 0) ? .hettRegn : .hett
-        default:
-            return .nollgradigtPlusRegn
+            case (-100)..<(-15): return (weather.rainfall > 0) ? .mycketKalltSno : .mycketKallt
+            case (-15)..<(-5): return (weather.rainfall > 0) ? .kalltSno : .kallt
+            case (-5)..<0: return (weather.rainfall > 0) ? .nollgradigtMinusSno : .nollgradigtMinus
+            case 0..<(5): return (weather.rainfall > 0) ? .nollgradigtPlusRegn : .nollgradigtPlus
+            case (5)..<(15): return (weather.rainfall > 0) ? .kyligtRegn : .kyligt
+            case (15)..<(25): return (weather.rainfall > 0) ? .varmtRegn : .varmt
+            case (25)..<(100): return (weather.rainfall > 0) ? .hettRegn : .hett
+            default:
+                return .nollgradigtPlusRegn
         }
     }
 }
-
 
 
 
@@ -94,7 +93,7 @@ class ClothesImageHandler {
     
     // Mark: Path helper
     private var basePath: String {
-        get{
+        get {
             return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         }
     }
@@ -105,7 +104,7 @@ class ClothesImageHandler {
 
     // Mark: persistent storage helper
     let userDefaultsKey = "ClothesImageHandler"
-    private func getUserDefaultsObject() -> [String:[String]]{
+    private func getUserDefaultsObject() -> [String:[String]] {
         return settings.object(forKey: userDefaultsKey) as? [String:[String]] ?? [:]
     }
     
@@ -116,40 +115,39 @@ class ClothesImageHandler {
 
     
     // Mark: Public image functions
-    public func removeImageFor(_ clothesImage: Clothing, index: Int){
+    public func removeImageFor(_ clothesImage: Clothing, index: Int) {
         var tmp = getUserDefaultsObject()
-        if let path = tmp[clothesImage.rawValue]?[safe: index]{
+        if let path = tmp[clothesImage.rawValue]?[safe: index] {
             try? fileManager.removeItem(atPath: path)
         }
         tmp[clothesImage.rawValue]?.remove(at: index)
         setUserDefaultsObject(tmp)
     }
     
-    public func addImageFor(_ clothesImage: Clothing, image: UIImage){
+    public func addImageFor(_ clothesImage: Clothing, image: UIImage) {
         var tmp = getUserDefaultsObject()
         let fileName = UUID().uuidString + ".jpg"
-        if tmp[clothesImage.rawValue] != nil{
+        if tmp[clothesImage.rawValue] != nil {
             tmp[clothesImage.rawValue]?.append(fileName)
-        }else{
+        } else {
             tmp[clothesImage.rawValue] = [fileName]
         }
-        do{
+        do {
             guard let jpg = UIImageJPEGRepresentation(image, 0.7) else { throw NSError(domain: "jpg error", code: 1, userInfo: [:]) }
             try jpg.write(to: URL(fileURLWithPath: basePath+"/"+fileName))
             setUserDefaultsObject(tmp)
-        } catch (let error){
+        } catch (let error) {
             print(error)
         }
     }
     
-    public func replaceImageFor(_ clothesImage: Clothing, image: UIImage, index: Int){
+    public func replaceImageFor(_ clothesImage: Clothing, image: UIImage, index: Int) {
         var tmp = getUserDefaultsObject()
         let fileName = tmp[clothesImage.rawValue]![index]
-        do{
+        do {
             guard let jpg = UIImageJPEGRepresentation(image, 0.7) else { throw NSError(domain: "jpg error", code: 1, userInfo: [:]) }
             try jpg.write(to: URL(fileURLWithPath: basePath+"/"+fileName))
-            
-        } catch (let error){
+        } catch (let error) {
             print(error)
         }
     }
@@ -163,7 +161,7 @@ class ClothesImageHandler {
         return filePaths
     }
     
-    public func getImagesFor(_ clothesImage: Clothing) -> [UIImage]{
+    public func getImagesFor(_ clothesImage: Clothing) -> [UIImage] {
         let fileNames = getImageNamesFor(clothesImage)
         let images = fileNames.flatMap {
             fileName in

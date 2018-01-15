@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		52E65D521F9725010032BEB5 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E65D511F9725010032BEB5 /* Animator.swift */; };
 		D72A98D41F8CA26A005B4D13 /* UIDevice+ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A98D31F8CA26A005B4D13 /* UIDevice+ScreenType.swift */; };
+		D72DC42A1FFD96A2005512FB /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72DC4291FFD96A2005512FB /* MainNavigationController.swift */; };
 		D7D8BB741F8BB67E00856654 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D8BB731F8BB67E00856654 /* PaddedLabel.swift */; };
 		D7D9DAB31F8D11EE00260E47 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DAB21F8D11EE00260E47 /* ImageDetailViewController.swift */; };
 		D7D9DAB61F8D334F00260E47 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9DAB51F8D334F00260E47 /* ImageScrollView.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		52E65D511F9725010032BEB5 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		D72A98D31F8CA26A005B4D13 /* UIDevice+ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenType.swift"; sourceTree = "<group>"; };
+		D72DC4291FFD96A2005512FB /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		D7D8BB731F8BB67E00856654 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		D7D9DAB21F8D11EE00260E47 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		D7D9DAB51F8D334F00260E47 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		D7EAD4F61F84D52000A4A9C7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D72DC4291FFD96A2005512FB /* MainNavigationController.swift */,
 				D7EAD5001F84D52000A4A9C7 /* MainViewController.swift */,
 				D7EAD51A1F84DD4A00A4A9C7 /* ImagesViewController.swift */,
 				D7EAD51C1F84E4BC00A4A9C7 /* ImagesCollectionViewCell.swift */,
@@ -266,6 +269,7 @@
 				D7EAD50D1F84D52000A4A9C7 /* MainViewController.swift in Sources */,
 				D7D9DAB81F8D356800260E47 /* ZoomTransitioningDelegate.swift in Sources */,
 				D7EAD4ED1F84D4BB00A4A9C7 /* Clothing.swift in Sources */,
+				D72DC42A1FFD96A2005512FB /* MainNavigationController.swift in Sources */,
 				D7EAD4F41F84D51B00A4A9C7 /* ThunderAnimation.swift in Sources */,
 				D7EAD4F51F84D51B00A4A9C7 /* WeatherAnimation.swift in Sources */,
 				D7EAD51D1F84E4BC00A4A9C7 /* ImagesCollectionViewCell.swift in Sources */,

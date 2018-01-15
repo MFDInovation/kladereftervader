@@ -24,6 +24,7 @@ class ImageDetailViewController: UIViewController, UIViewControllerTransitioning
     }
 
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         imageScrollView.zoomView?.contentMode = .scaleAspectFit
         imageScrollView.zoomView?.frame = imageScrollView.bounds
         imageScrollView.adjustFrameToCenter()

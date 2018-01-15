@@ -10,6 +10,8 @@ import UIKit
 
 class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { get { return .all } }
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var menuStackView: UIStackView!
@@ -24,24 +26,22 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     var manageMode: Bool = false
     var weather: Weather? {
         didSet {
-            data = []
-            loadData()
+            if !manageMode {
+                data = []
+                loadData()
+            }
         }
     }
+
+    private var viewDidLayoutSubviewsForTheFirstTime = true
+    private var loadFirstCellForTheFirstTime = true
 
     private var data: Array<ClothesData> = []
     private var currentIndex: Int = 0 {
         didSet {
             updateNavigationButtons()
-            scrollToIndex(index: currentIndex)
         }
     }
-
-    private let imageToBottomSpacing : CGFloat = 100
-
-    // 'Manage Images' UI
-    private let headerHeight : CGFloat = 60
-    private let headerPadding : CGFloat = 16
 
     // Custom transition (for zoom view controller)
     let transition = Animator()
@@ -50,17 +50,56 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Setup UI
         view.backgroundColor = manageMode ? UIColor.white : UIColor.clear
+        collectionView.alpha = 0
+        pageControl.alpha = 0
+        navigationButtonsStackView.alpha = 0
         pageControl.numberOfPages = 0
         setupButtons()
         updateNavigationButtons()
         loadAccessibility()
-        loadData()
+
+        if manageMode {
+            loadData()
+        }
 
         if constants.showDebugBorders {
             collectionView.layer.borderColor = UIColor.red.cgColor
             collectionView.layer.borderWidth = 1.0
         }
+    }
+
+
+    // MARK: - Layout
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        if !manageMode {return}
+
+        // Make sure this is the first time, else return
+        guard viewDidLayoutSubviewsForTheFirstTime == true else {return}
+
+        jumpToCurrentWeather()
+        viewDidLayoutSubviewsForTheFirstTime = false
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+
+        collectionView.invalidateIntrinsicContentSize()
+        collectionView.collectionViewLayout.invalidateLayout()
+
+        if !manageMode {return}
+
+        coordinator.animate(alongsideTransition: { ctx in
+            if let cell = self.visibleCell() {
+                cell.scrollToCurrentIndex(animated: false)
+            }
+        }, completion:nil)
+
+        super.viewWillTransition(to: size, with: coordinator)
     }
 
 
@@ -75,7 +114,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
                 let clothingData = ClothesData(clothing: clothing, imagePaths: imagePaths)
                 data.append(clothingData)
             }
-            // TODO: scroll to current weather?
         } else if weather != nil {
             let clothes = Clothing.create(from: weather!)
             let imagePaths = ClothesImageHandler.shared.getImagePathsFor(clothes)
@@ -86,6 +124,13 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView?.reloadData()
         setupPageControl()
         updateNavigationButtons()
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.pageControl.alpha = 1
+            self.navigationButtonsStackView.alpha = 1
+            self.collectionView.alpha = 1
+        }, completion: nil)
+
     }
 
 
@@ -165,6 +210,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ImagesVC") as! ImagesViewController
         controller.manageMode = true
+        controller.weather = weather
         present(controller, animated: true, completion: nil)
     }
 
@@ -202,7 +248,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
 
-    // MARK: - Add/replace image
+    // MARK: - Add image
 
     // User adds a new image to the app
     @IBAction private func addImage() {
@@ -213,10 +259,8 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - Visible cell
 
-    // Only one cell should be on screen at once, so we can do the following.
-
     private func visibleCellIndexPath() -> IndexPath {
-        // Find the center point for the current image withing the collection view
+        // Find the center point for the current image within the collection view
         let centerX = collectionView.contentOffset.x + collectionView.frame.width/2
         // Translate point to an index path
         return collectionView.indexPathForItem(at: CGPoint(x: centerX, y: collectionView.center.y))!
@@ -236,19 +280,37 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - Scrolling
 
-    private func scrollToIndex(index: Int) {
-        collectionView?.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+    private func scrollToIndex(index: Int, animated: Bool) {
+        collectionView?.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: animated)
+    }
+
+    private func scrollToCurrentIndex(animated: Bool) {
+        scrollToIndex(index: currentIndex, animated: animated)
+    }
+
+    private func jumpToCurrentWeather() {
+        if !manageMode {return}
+
+        // In manage mode, show cell for current weather
+        if let currentWeather = weather {
+            let clothingForCurrentWeather = Clothing.create(from: currentWeather)
+            let indexForCurrentWeather = Clothing.allValues .index(of: clothingForCurrentWeather)
+            currentIndex = indexForCurrentWeather!
+            scrollToCurrentIndex(animated: false)
+        }
     }
 
     @IBAction func scrollRight() {
         if canScrollRight() {
             currentIndex += 1
+            scrollToCurrentIndex(animated: true)
         }
     }
 
     @IBAction func scrollLeft() {
         if canScrollLeft() {
             currentIndex -= 1
+            scrollToCurrentIndex(animated: true)
         }
     }
 
@@ -266,11 +328,11 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - UICollectionViewDataSource
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    internal func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         if data.count == 0 {
             return 0
@@ -286,11 +348,16 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         return clothesData!.imagePaths.count + 1
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImagesCollectionViewCell
 
         if manageMode {
+            // There seems to be a bug causing the first cell to be slightly misplaced. To fix it...
+            if loadFirstCellForTheFirstTime {
+                collectionView.collectionViewLayout.invalidateLayout()
+                loadFirstCellForTheFirstTime = false
+            }
             cell.configureWithClothesData(data: data[indexPath.row])
         } else {
             let isLast = isLastItem(indexPath: indexPath)
@@ -309,10 +376,8 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     // MARK: - UICollectionViewDelegate
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var size = collectionView.frame.size
-        size.height -= 4
-        return size
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.frame.size
     }
 
     internal func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -324,11 +389,19 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
 
+    internal func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        guard let indexPath = collectionView.indexPathsForVisibleItems.last, let layoutAttributes = flowLayout.layoutAttributesForItem(at: indexPath) else {
+            return proposedContentOffset
+        }
+        return CGPoint(x: layoutAttributes.center.x - (layoutAttributes.size.width / 2.0) - (flowLayout.minimumLineSpacing / 2.0), y: 0)
+    }
+
 
     // MARK: - UIScrollViewDelegate
 
     // When scrolling with pan gesture ends
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentIndex = visibleCellIndex()
     }
 
@@ -339,9 +412,10 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         return (indexPath.item == collectionView.numberOfItems(inSection: indexPath.section)-1)
     }
 
+
     // MARK: - Accessibility
     
-    func loadAccessibility(){
+    private func loadAccessibility() {
         if #available(iOS 10.0, *) {
             doneButton.isAccessibilityElement = true
             doneButton.accessibilityLabel = "Avsluta till huvudskärm"

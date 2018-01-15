@@ -16,20 +16,20 @@ enum Response<T> {
     //Applicerar en transform om success annars inte.
     func map<G>(_ transform: (T) -> G) -> Response<G> {
         switch self {
-        case .success(let value):
-            return .success(transform(value))
-        case .error(let error):
-            return .error(error)
+            case .success(let value):
+                return .success(transform(value))
+            case .error(let error):
+                return .error(error)
         }
         
     }
     
     static func flatten<T>(_ response: Response<Response<T>>) -> Response<T> {
         switch response {
-        case .success(let innerResponse):
-            return innerResponse
-        case .error(let error):
-            return .error(error)
+            case .success(let innerResponse):
+                return innerResponse
+            case .error(let error):
+                return .error(error)
         }
     }
     

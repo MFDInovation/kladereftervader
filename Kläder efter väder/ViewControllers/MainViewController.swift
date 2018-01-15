@@ -9,7 +9,7 @@
 import UIKit
 // View controller responsible for the main view.
 class MainViewController: UIViewController {
-    
+
     let smhi = SMHIAPI()
     let gps = GPS()
     
@@ -28,11 +28,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         temperatureLabel.backgroundColor = UIColor.init(white: 0.9, alpha: 1)
         loadAccessibility()
-        
-        // Listen for notifications
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: .UIApplicationWillResignActive, object: nil)
+        addObservers()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +38,22 @@ class MainViewController: UIViewController {
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+
+
+    // MARK: - Layout
+
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+
+        if let width = imageView.image?.size.width, let height = imageView.image?.size.height {
+            let aspect = height/width
+            if aspect > 1.0 {
+                let offset = (imageView.bounds.size.width*aspect - imageView.bounds.size.height)/2.0
+                imageView.transform = CGAffineTransform(translationX: 0, y: (offset > 0 ? offset : 0))
+            }
+        }
     }
 
 
@@ -74,42 +86,42 @@ class MainViewController: UIViewController {
     }
     
     //Loads and displays the current weather
-    func loadWeather(){
+    func loadWeather() {
         imageView.image = nil
         temperatureLabel.text = ""
         activityIndicator.startAnimating()
         isLoadingWeather = true
         
         gps.findLocation {
-            switch $0{
-            case .success(let location):
-                self.smhi.getUpcomingWeather(location: location) { result in
-                    OperationQueue.main.addOperation {
-                        self.weatherAnimation.clear()
-                        self.activityIndicator.stopAnimating()
-                        switch result {
-                        case .success(let weather):
-                            self.lastLoadTime = Date()
-                            self.currentWeather = weather
-                            self.showWeather(weather)
-                            self.isLoadingWeather = false
-                        case .error(_):
-                            self.currentWeather = nil
-                            // Reset imagesViewController
-                            self.showWeather(self.currentWeather)
-                            self.imagesViewController?.showNetworkError()
-                            self.isLoadingWeather = false
+            switch $0 {
+                case .success(let location):
+                    self.smhi.getUpcomingWeather(location: location) { result in
+                        OperationQueue.main.addOperation {
+                            self.weatherAnimation.clear()
+                            self.activityIndicator.stopAnimating()
+                            switch result {
+                                case .success(let weather):
+                                    self.lastLoadTime = Date()
+                                    self.currentWeather = weather
+                                    self.showWeather(weather)
+                                    self.isLoadingWeather = false
+                                case .error(_):
+                                    self.currentWeather = nil
+                                    // Reset imagesViewController
+                                    self.showWeather(self.currentWeather)
+                                    self.imagesViewController?.showNetworkError()
+                                    self.isLoadingWeather = false
+                            }
                         }
                     }
-                }
-            case .error(_):
-                OperationQueue.main.addOperation {
-                    self.activityIndicator.stopAnimating()
-                    self.currentWeather = nil
-                    self.showWeather(self.currentWeather)
-                    self.imagesViewController?.showGPSError()
-                    self.isLoadingWeather = false
-                }
+                case .error(_):
+                    OperationQueue.main.addOperation {
+                        self.activityIndicator.stopAnimating()
+                        self.currentWeather = nil
+                        self.showWeather(self.currentWeather)
+                        self.imagesViewController?.showGPSError()
+                        self.isLoadingWeather = false
+                    }
             }
         }
     }
@@ -167,12 +179,21 @@ class MainViewController: UIViewController {
     }
 
 
+    // MARK: - Observers
+
+    private func addObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: .UIApplicationWillResignActive, object: nil)
+    }
+
+
     // MARK: - Accessibility
 
-    func loadAccessibility(){
+    private func loadAccessibility() {
         if #available(iOS 10.0, *) {
             imageView.isAccessibilityElement = true
-            
+
             temperatureLabel.adjustsFontForContentSizeCategory = true
             temperatureLabel.isAccessibilityElement = true
         } else {
