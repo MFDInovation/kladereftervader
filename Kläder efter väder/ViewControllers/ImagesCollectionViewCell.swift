@@ -153,6 +153,7 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
             }
             tableView.insertRows(at: [newIndexPath], with: .automatic)
             tableView.scrollToRow(at: newIndexPath, at: .top, animated: true)
+            updateButtonsIfNeeded(indexPath: newIndexPath)
         }
     }
 
@@ -280,7 +281,15 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
             self.data?.imagePaths.remove(at: (indexPath?.row)!-1)
             // Remove cell
             self.tableView.deleteRows(at: [indexPath!], with: .fade)
+
+            // Update delete button
+            let offset = self.tableView.contentOffset
+            let height = self.tableView.frame.size.height
+            let centerY = offset.y + (height/2)
+            let cellIndexPath = self.tableView.indexPathForRow(at: CGPoint(x: offset.x, y: centerY))
+            self.updateButtonsIfNeeded(indexPath: cellIndexPath!)
         })
+
         alert.addAction(deleteAction)
         let cancelAction = UIAlertAction(title: "Avbryt", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
@@ -295,21 +304,8 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         currentIndex = visibleCellIndex()
         updateDownArrow()
 
-        // Sometimes the "Delete Image" ("Ta bort") alpha hasn't been set - fix it here
-        let targetCell = visibleCell() as! ImageTableViewCell
-        if targetCell.deleteImageButton != nil && targetCell.deleteImageButton.alpha == 0 {
-            UIView.animate(withDuration: 0.5, animations: {
-                // Fade in "Delete" button for visible cell, fade out for other cells
-                for cell in self.tableView.visibleCells {
-                    if (cell == targetCell) {
-                        targetCell.deleteImageButton.alpha = 1
-                    } else {
-                        (cell as! ImageTableViewCell).deleteImageButton.alpha = 0
-                    }
-                }
-            })
-        }
-
+        let indexPath = visibleCellIndexPath()
+        updateButtonsIfNeeded(indexPath: indexPath)
     }
 
     internal func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -323,26 +319,31 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         let targetCellFrame = tableView.rectForRow(at: targetCellIndexPath!)
         targetContentOffset.pointee.y = targetCellFrame.origin.y
 
-        let targetCell = tableView.cellForRow(at: targetCellIndexPath!)
+        updateButtonsIfNeeded(indexPath: targetCellIndexPath!)
+    }
+
+    // Fade in "Delete" button for target cell, fade out for other cells
+    private func updateButtonsIfNeeded(indexPath: IndexPath) {
+        let targetCell = tableView.cellForRow(at: indexPath)
         if targetCell == nil { return }
         let targetImageCell = targetCell as! ImageTableViewCell
 
-        // Fade in "Delete" button for target cell, fade out for other cells
-        UIView.animate(withDuration: 0.5, animations: {
-            for cell in self.tableView.visibleCells {
-                if (cell == targetCell) {
-                    if targetImageCell.deleteImageButton != nil {
-                        targetImageCell.deleteImageButton.alpha = 1
-                    }
-                } else {
-                    let imageCell = cell as! ImageTableViewCell
-                    if imageCell.deleteImageButton != nil {
-                        imageCell.deleteImageButton.alpha = 0
+        if targetImageCell.deleteImageButton != nil && targetImageCell.deleteImageButton.alpha == 0 {
+            UIView.animate(withDuration: 0.5, animations: {
+                for cell in self.tableView.visibleCells {
+                    if (cell == targetCell) {
+                        if targetImageCell.deleteImageButton != nil {
+                            targetImageCell.deleteImageButton.alpha = 1
+                        }
+                    } else {
+                        let imageCell = cell as! ImageTableViewCell
+                        if imageCell.deleteImageButton != nil {
+                            imageCell.deleteImageButton.alpha = 0
+                        }
                     }
                 }
-            }
-        })
-
+            })
+        }
     }
 
 
