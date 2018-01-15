@@ -26,6 +26,7 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
     private var imagePath: String?
 
     private var currentIndex: Int = 0
+    private var futureIndex: Int = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -189,6 +190,11 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         tableView.scrollToRow(at: IndexPath.init(row: currentIndex, section: 0), at: .top, animated: animated)
     }
 
+    func scrollToFutureIndex(animated: Bool) {
+        tableView.scrollToRow(at: IndexPath.init(row: futureIndex, section: 0), at: .top, animated: animated)
+        currentIndex = futureIndex
+    }
+
 
     // MARK: - Table view data source
 
@@ -318,6 +324,8 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         let targetCellIndexPath = tableView.indexPathForRow(at: CGPoint(x: targetOffset.x, y: targetCenterY))
         let targetCellFrame = tableView.rectForRow(at: targetCellIndexPath!)
         targetContentOffset.pointee.y = targetCellFrame.origin.y
+
+        futureIndex = (targetCellIndexPath?.row)!
 
         updateButtonsIfNeeded(indexPath: targetCellIndexPath!)
     }

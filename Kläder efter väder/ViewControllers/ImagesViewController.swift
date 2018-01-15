@@ -95,7 +95,11 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
         coordinator.animate(alongsideTransition: { ctx in
             if let cell = self.visibleCell() {
-                cell.scrollToCurrentIndex(animated: false)
+                if cell.tableView.isDragging || cell.tableView.isDecelerating {
+                    cell.scrollToFutureIndex(animated: false)
+                } else {
+                    cell.scrollToCurrentIndex(animated: false)
+                }
             }
         }, completion:nil)
 
