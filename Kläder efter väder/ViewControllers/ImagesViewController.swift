@@ -243,16 +243,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         present(alert, animated: true, completion: nil)
     }
 
-    func showZoomViewControllerForCell(cell: ImageTableViewCell) {
-        selectedCell = cell
-        
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let detailVC = storyboard.instantiateViewController(withIdentifier: "ImageDetail") as! ImageDetailViewController
-        detailVC.image = cell.photoView.image
-        detailVC.transitioningDelegate = self
-        present(detailVC, animated: true, completion: nil)
-    }
-
     
     // MARK: - Zooming
 
