@@ -433,33 +433,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tN9-Nv-gkj" customClass="ImageScrollView" customModule="Kla_der_efter_va_der" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Op4-cj-Q2g">
-                                <rect key="frame" x="334" y="959" width="100" height="55"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="sEf-j5-AAY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <inset key="contentEdgeInsets" minX="14" minY="14" maxX="14" maxY="14"/>
-                                <state key="normal" title="Klar">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="close" destination="OoL-Sc-wCT" eventType="touchUpInside" id="Cfs-im-AIU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Op4-cj-Q2g" firstAttribute="centerX" secondItem="e7z-RD-i5w" secondAttribute="centerX" id="3Fa-CM-zND"/>
                             <constraint firstItem="tN9-Nv-gkj" firstAttribute="top" secondItem="VXU-zj-yFv" secondAttribute="top" id="Z7S-dB-OyV"/>
                             <constraint firstAttribute="trailing" secondItem="tN9-Nv-gkj" secondAttribute="trailing" id="beO-EQ-cJy"/>
                             <constraint firstItem="tN9-Nv-gkj" firstAttribute="leading" secondItem="VXU-zj-yFv" secondAttribute="leading" id="cyD-6U-cN3"/>
                             <constraint firstAttribute="bottom" secondItem="tN9-Nv-gkj" secondAttribute="bottom" id="eEl-9d-RVy"/>
-                            <constraint firstItem="e7z-RD-i5w" firstAttribute="bottom" secondItem="Op4-cj-Q2g" secondAttribute="bottom" constant="10" id="uQ7-u8-70e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e7z-RD-i5w"/>
                     </view>

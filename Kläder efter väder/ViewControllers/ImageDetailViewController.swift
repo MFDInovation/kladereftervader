@@ -37,13 +37,6 @@ class ImageDetailViewController: UIViewController, UIViewControllerTransitioning
     }
 
 
-    // MARK: - Actions
-
-    @IBAction func close() {
-        dismiss(animated: true, completion: nil)
-    }
-
-
     // MARK: - Key-Value Observing
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
