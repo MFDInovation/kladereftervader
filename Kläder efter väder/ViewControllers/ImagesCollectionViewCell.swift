@@ -177,10 +177,10 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         return indexPath.row
     }
 
-    private func visibleCell() -> UITableViewCell? {
+    func visibleCell() -> ImageTableViewCell? {
         let indexPath = visibleCellIndexPath()
         let cell = tableView.cellForRow(at: indexPath)
-        return cell
+        return cell as? ImageTableViewCell
     }
 
 
