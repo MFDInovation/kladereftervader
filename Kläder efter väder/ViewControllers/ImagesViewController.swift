@@ -437,7 +437,6 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
             // Make sure we start at top image every time the cell is displayed
             let myCell = cell as! ImagesCollectionViewCell
             myCell.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-            myCell.updateDownArrow()
         }
     }
 

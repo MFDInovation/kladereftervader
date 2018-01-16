@@ -12,7 +12,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak var tableView : UITableView!
-    @IBOutlet weak var arrowDownImageView: UIImageView!
     @IBOutlet weak private var gradientView : UIView!
 
     var manageMode: Bool = false {
@@ -40,9 +39,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         titleLabel.isAccessibilityElement = true
         titleLabel.accessibilityLabel = clothing?.rawValue
         
-        arrowDownImageView.isAccessibilityElement = true
-        arrowDownImageView.accessibilityLabel = "Det finns inlagda bilder"
-        
         if constants.showDebugBorders {
             contentView.layer.borderColor = UIColor.blue.cgColor
             contentView.layer.borderWidth = 4.0
@@ -51,14 +47,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
 
     // MARK: - Layout
-
-    func updateDownArrow() {
-        return
-        if let indexPath = tableView.indexPathsForVisibleRows?.last {
-            let lastItem = ((indexPath.row)+1 == tableView.numberOfRows(inSection: 0))
-            arrowDownImageView.isHidden = lastItem
-        }
-    }
 
     // Gradient view (bottom fade)
     private func setupGradient() {
@@ -88,27 +76,18 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
         tableView.isScrollEnabled = data.imagePaths.count > 0
         titleLabel.text = constants.getClothingName(data.clothing)
         tableView.reloadData()
-        if manageMode {
-            updateDownArrow()
-        }
     }
 
     func configureWithClothing(clothing: Clothing) {
         cleanup()
         self.clothing = clothing
         tableView.reloadData()
-        if manageMode {
-            updateDownArrow()
-        }
     }
 
     func configureWithImagePath(imagePath: String) {
         cleanup()
         self.imagePath = imagePath
         tableView.reloadData()
-        if manageMode {
-            updateDownArrow()
-        }
     }
 
     private func cleanup() {
@@ -308,8 +287,6 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
     internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentIndex = visibleCellIndex()
-        updateDownArrow()
-
         let indexPath = visibleCellIndexPath()
         updateButtonsIfNeeded(indexPath: indexPath)
     }

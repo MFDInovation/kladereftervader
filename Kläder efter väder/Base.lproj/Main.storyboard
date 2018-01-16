@@ -225,13 +225,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-down" translatesAutoresizingMaskIntoConstraints="NO" id="cql-Iw-wxL">
-                                                    <rect key="frame" x="715" y="1009" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="PGS-K1-ebO"/>
-                                                        <constraint firstAttribute="width" constant="40" id="hP6-sG-zKr"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmp-1d-o6Q">
                                                     <rect key="frame" x="0.0" y="1049" width="765" height="10"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -246,16 +239,13 @@
                                             <constraint firstAttribute="bottom" secondItem="Rmp-1d-o6Q" secondAttribute="bottom" id="Chd-z1-6jF"/>
                                             <constraint firstItem="8gs-GC-VNy" firstAttribute="top" secondItem="0D6-pj-y4j" secondAttribute="top" constant="30" id="IZY-bo-qfB"/>
                                             <constraint firstAttribute="trailing" secondItem="Sab-XM-7rW" secondAttribute="trailing" id="RyF-UR-tIk"/>
-                                            <constraint firstItem="Rmp-1d-o6Q" firstAttribute="top" secondItem="cql-Iw-wxL" secondAttribute="bottom" id="gCC-BQ-J7c"/>
                                             <constraint firstItem="Rmp-1d-o6Q" firstAttribute="leading" secondItem="0D6-pj-y4j" secondAttribute="leading" id="lI9-js-axI"/>
                                             <constraint firstAttribute="bottom" secondItem="Sab-XM-7rW" secondAttribute="bottom" id="nM0-u5-ord"/>
                                             <constraint firstItem="Sab-XM-7rW" firstAttribute="top" secondItem="0D6-pj-y4j" secondAttribute="top" id="pTL-sH-MTQ"/>
                                             <constraint firstItem="8gs-GC-VNy" firstAttribute="centerX" secondItem="0D6-pj-y4j" secondAttribute="centerX" id="qF6-4t-nrl"/>
-                                            <constraint firstAttribute="trailing" secondItem="cql-Iw-wxL" secondAttribute="trailing" constant="10" id="qIw-4D-yFK"/>
                                             <constraint firstItem="Sab-XM-7rW" firstAttribute="leading" secondItem="0D6-pj-y4j" secondAttribute="leading" id="qYf-Ty-uaI"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="arrowDownImageView" destination="cql-Iw-wxL" id="7YH-t0-bIH"/>
                                             <outlet property="gradientView" destination="Rmp-1d-o6Q" id="T1H-ap-wCy"/>
                                             <outlet property="tableView" destination="Sab-XM-7rW" id="gxV-an-Yxf"/>
                                             <outlet property="titleLabel" destination="8gs-GC-VNy" id="wU4-Ny-Hkd"/>
@@ -482,7 +472,4 @@
             <point key="canvasLocation" x="3397" y="2494"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrow-down" width="52" height="26"/>
-    </resources>
 </document>
