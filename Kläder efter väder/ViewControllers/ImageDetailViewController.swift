@@ -13,13 +13,15 @@ class ImageDetailViewController: UIViewController, UIViewControllerTransitioning
     @IBOutlet weak var imageScrollView: ImageScrollView!
 
     var image: UIImage? = nil
-
+    var startZoomScale: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if imageScrollView != nil {
             imageScrollView.display(image: image!)
             imageScrollView.contentSize = view.intrinsicContentSize
+            startZoomScale = imageScrollView.zoomScale
+            imageScrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
         }
     }
 
@@ -30,11 +32,26 @@ class ImageDetailViewController: UIViewController, UIViewControllerTransitioning
         imageScrollView.adjustFrameToCenter()
     }
 
+    deinit {
+        imageScrollView.removeObserver(self, forKeyPath: "contentOffset")
+    }
+
 
     // MARK: - Actions
 
     @IBAction func close() {
         dismiss(animated: true, completion: nil)
+    }
+
+
+    // MARK: - Key-Value Observing
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentOffset" {
+            if imageScrollView.zoomScale < startZoomScale {
+                dismiss(animated: true, completion: nil)
+            }
+        }
     }
 
 }

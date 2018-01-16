@@ -69,6 +69,8 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
             collectionView.layer.borderColor = UIColor.red.cgColor
             collectionView.layer.borderWidth = 1.0
         }
+
+        addPinchRecognizer()
     }
 
 
@@ -249,6 +251,52 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         detailVC.image = cell.photoView.image
         detailVC.transitioningDelegate = self
         present(detailVC, animated: true, completion: nil)
+    }
+
+    
+    // MARK: - Zooming
+
+    @objc func onPinch(sender: UIPinchGestureRecognizer) {
+
+        let scale = sender.scale
+        let state = sender.state
+
+        if state == .began {
+            if scale < 0 { return }
+            if let weatherCell = visibleCell() {
+                if let imageCell = weatherCell.visibleCell() {
+                    selectedCell = imageCell
+                    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                    let zoomVC = storyboard.instantiateViewController(withIdentifier: "ImageDetail") as! ImageDetailViewController
+                    zoomVC.image = imageCell.photoView.image
+                    zoomVC.transitioningDelegate = self
+                    present(zoomVC, animated: true, completion: nil)
+                    zoomVC.imageScrollView.addGestureRecognizer(sender)
+                }
+            }
+        } else if state == .changed {
+            let zoomVC = presentedViewController as! ImageDetailViewController
+            if scale < 1 {
+                zoomVC.dismiss(animated: true, completion: nil)
+                return
+            }
+            zoomVC.imageScrollView.isUserInteractionEnabled = false
+            let newScale = zoomVC.startZoomScale * scale
+            zoomVC.imageScrollView.setZoomScale(newScale, animated: true)
+        } else if state == .ended || state == .cancelled {
+            let zoomVC = presentedViewController as! ImageDetailViewController
+            zoomVC.imageScrollView.removeGestureRecognizer(sender)
+            collectionView.removeGestureRecognizer(sender)
+            zoomVC.imageScrollView.isUserInteractionEnabled = true
+            addPinchRecognizer()
+        }
+
+    }
+
+    private func addPinchRecognizer() {
+        let pinchRecognizer = UIPinchGestureRecognizer()
+        pinchRecognizer.addTarget(self, action: #selector(onPinch(sender:)))
+        collectionView.addGestureRecognizer(pinchRecognizer)
     }
 
 
