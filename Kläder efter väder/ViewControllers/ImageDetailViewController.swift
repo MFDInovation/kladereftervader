@@ -10,6 +10,7 @@ import UIKit
 
 class ImageDetailViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { get { return .all } }
     override var shouldAutorotate: Bool { get { return false } }
 
     @IBOutlet weak var imageScrollView: ImageScrollView!
