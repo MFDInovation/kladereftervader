@@ -252,7 +252,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         let state = sender.state
 
         if state == .began {
-            if scale < 0 { return }
+            if scale < 1 { return }
             if let weatherCell = visibleCell() {
                 if let imageCell = weatherCell.visibleCell() {
                     selectedCell = imageCell
@@ -262,23 +262,25 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
                     zoomVC.transitioningDelegate = self
                     present(zoomVC, animated: true, completion: nil)
                     zoomVC.imageScrollView.addGestureRecognizer(sender)
+                    zoomVC.imageScrollView.isUserInteractionEnabled = false
                 }
             }
         } else if state == .changed {
-            let zoomVC = presentedViewController as! ImageDetailViewController
-            if scale < 1 {
-                zoomVC.dismiss(animated: true, completion: nil)
-                return
+            if let zoomVC = presentedViewController as? ImageDetailViewController {
+                if scale < 1 {
+                    zoomVC.dismiss(animated: true, completion: nil)
+                    return
+                }
+                let newScale = zoomVC.startZoomScale * scale
+                zoomVC.imageScrollView.setZoomScale(newScale, animated: true)
             }
-            zoomVC.imageScrollView.isUserInteractionEnabled = false
-            let newScale = zoomVC.startZoomScale * scale
-            zoomVC.imageScrollView.setZoomScale(newScale, animated: true)
         } else if state == .ended || state == .cancelled {
-            let zoomVC = presentedViewController as! ImageDetailViewController
-            zoomVC.imageScrollView.removeGestureRecognizer(sender)
-            collectionView.removeGestureRecognizer(sender)
-            zoomVC.imageScrollView.isUserInteractionEnabled = true
-            addPinchRecognizer()
+            if let zoomVC = presentedViewController as? ImageDetailViewController {
+                zoomVC.imageScrollView.removeGestureRecognizer(sender)
+                collectionView.removeGestureRecognizer(sender)
+                zoomVC.imageScrollView.isUserInteractionEnabled = true
+                addPinchRecognizer()
+            }
         }
 
     }
@@ -326,7 +328,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView?.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: animated)
     }
 
-    private func scrollToCurrentIndex(animated: Bool) {
+    func scrollToCurrentIndex(animated: Bool) {
         scrollToIndex(index: currentIndex, animated: animated)
     }
 

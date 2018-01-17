@@ -10,13 +10,21 @@ import UIKit
 
 class ImageDetailViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+    override var shouldAutorotate: Bool { get { return false } }
+
     @IBOutlet weak var imageScrollView: ImageScrollView!
 
     var image: UIImage? = nil
     var startZoomScale: CGFloat = 0
+    let startOrientation = UIApplication.shared.statusBarOrientation
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Lock to current orientation
+        UIDevice.current.setValue(startOrientation.rawValue, forKey: "orientation")
+
         if imageScrollView != nil {
             imageScrollView.display(image: image!)
             imageScrollView.contentSize = view.intrinsicContentSize
@@ -25,15 +33,18 @@ class ImageDetailViewController: UIViewController, UIViewControllerTransitioning
         }
     }
 
+    deinit {
+        imageScrollView.removeObserver(self, forKeyPath: "contentOffset")
+    }
+
+
+    // MARK: - Layout
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         imageScrollView.zoomView?.contentMode = .scaleAspectFit
         imageScrollView.zoomView?.frame = imageScrollView.bounds
         imageScrollView.adjustFrameToCenter()
-    }
-
-    deinit {
-        imageScrollView.removeObserver(self, forKeyPath: "contentOffset")
     }
 
 
@@ -42,6 +53,8 @@ class ImageDetailViewController: UIViewController, UIViewControllerTransitioning
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentOffset" {
             if imageScrollView.zoomScale < startZoomScale {
+                // Before dismissing, make sure the presenting view controller hasn't rotated
+                UIDevice.current.setValue(startOrientation.rawValue, forKey: "orientation")
                 dismiss(animated: true, completion: nil)
             }
         }
