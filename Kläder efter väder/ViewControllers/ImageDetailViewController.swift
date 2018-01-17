@@ -33,15 +33,18 @@ class ImageDetailViewController: UIViewController, UIViewControllerTransitioning
         }
     }
 
+    deinit {
+        imageScrollView.removeObserver(self, forKeyPath: "contentOffset")
+    }
+
+
+    // MARK: - Layout
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         imageScrollView.zoomView?.contentMode = .scaleAspectFit
         imageScrollView.zoomView?.frame = imageScrollView.bounds
         imageScrollView.adjustFrameToCenter()
-    }
-
-    deinit {
-        imageScrollView.removeObserver(self, forKeyPath: "contentOffset")
     }
 
 

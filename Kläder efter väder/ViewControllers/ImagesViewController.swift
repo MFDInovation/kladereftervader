@@ -328,7 +328,7 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView?.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: animated)
     }
 
-    private func scrollToCurrentIndex(animated: Bool) {
+    func scrollToCurrentIndex(animated: Bool) {
         scrollToIndex(index: currentIndex, animated: animated)
     }
 
