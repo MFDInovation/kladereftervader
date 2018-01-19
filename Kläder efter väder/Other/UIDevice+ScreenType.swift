@@ -57,4 +57,9 @@ extension UIDevice {
         return UIDevice().screenType == .iPhone6Plus
     }
 
+    static func displayZoomEnabled() -> Bool {
+        let screen = UIScreen.main
+        return screen.scale != screen.nativeScale
+    }
+
 }

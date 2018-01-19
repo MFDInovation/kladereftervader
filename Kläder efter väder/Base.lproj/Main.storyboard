@@ -263,17 +263,17 @@
                                 <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1FX-SB-qF9">
-                                <rect key="frame" x="5" y="1133" width="412" height="59"/>
+                                <rect key="frame" x="5" y="1133" width="428" height="59"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="XI1-nf-kfQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="158" height="59"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI1-nf-kfQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="59"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <inset key="contentEdgeInsets" minX="12" minY="16" maxX="12" maxY="16"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="16" maxX="20" maxY="16"/>
                                         <state key="normal" title="Hantera bilder">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -285,7 +285,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbC-Kc-DX5">
-                                        <rect key="frame" x="161" y="0.0" width="78" height="59"/>
+                                        <rect key="frame" x="177" y="0.0" width="78" height="59"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
@@ -304,8 +304,8 @@
                                             <action selector="startHelpButtonPressed:" destination="ruN-qF-5BJ" eventType="touchUpInside" id="oHI-UK-3AO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-UZ-g4B">
-                                        <rect key="frame" x="242" y="0.0" width="115" height="59"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-UZ-g4B">
+                                        <rect key="frame" x="258" y="0.0" width="115" height="59"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>
@@ -324,7 +324,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dd-ai-gEl">
-                                        <rect key="frame" x="360" y="0.0" width="52" height="59"/>
+                                        <rect key="frame" x="376" y="0.0" width="52" height="59"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Hantera bilder">
                                             <accessibilityTraits key="traits" button="YES"/>

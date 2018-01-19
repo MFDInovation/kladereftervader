@@ -144,19 +144,26 @@ class ImagesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     private func setupButtons() {
 
-        // Adjust button sizes for smallen screen sizes
-        if UIDevice.isScreen35inch() || UIDevice.isScreen4inch() {
-            menuStackView.spacing = 4.0
-            navigationButtonsStackView.spacing = 4.0
+        // Adjust buttons for smaller screen sizes and 'Display Zoom' setting
+        let smallScreen = UIDevice.isScreen35inch() || UIDevice.isScreen4inch()
+        let displayZoom = UIDevice.displayZoomEnabled()
+
+        if smallScreen || displayZoom {
+
+            if smallScreen {
+                menuStackView.spacing = 4.0
+                navigationButtonsStackView.spacing = 4.0
+            }
+
+            // Adjust font size and insets
             let buttons: Array<UIButton> = [manageImagesButton, doneButton, addButton, helpButton, leftButton, rightButton]
+            let vPadding: CGFloat = 12.0
+            let hPadding: CGFloat = 15.0
+            let fontSize: CGFloat = smallScreen ? 18.0 : 20.0
+
             for btn in buttons {
-                if (btn == manageImagesButton) {
-                    btn.contentEdgeInsets = UIEdgeInsets(top: 12, left: 9, bottom: 12, right: 9)
-                } else {
-                    btn.contentEdgeInsets = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
-                }
-                
-                btn.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
+                btn.contentEdgeInsets = UIEdgeInsets(top: vPadding, left: hPadding, bottom: vPadding, right: hPadding)
+                btn.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
             }
         }
 
