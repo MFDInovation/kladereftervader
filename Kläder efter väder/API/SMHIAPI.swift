@@ -85,25 +85,26 @@ class SMHIAPI {
         let tmp = URL(string: "http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/\(lon)/lat/\(lat)/data.json")
         return tmp
     }
-    
+
     func getUpcomingWeather(location: CLLocation, _ callback: @escaping (Response<Weather>) -> Void){
         let start = Date()
         let end = Date()+60*60*8
         getWeather(location: location, start: start, end: end, callback)
     }
-    
+
     func getWeather(location: CLLocation, start: Date, end: Date, _ callback: @escaping (Response<Weather>) -> Void){
         networking.getJson(url: weatherUrl(location: location)!){
-            switch $0{
-            case .success(let json):
-                if let weather = Weather(with: json,start: start,end: end){
-                    callback(.success(weather))
-                }else{
-                    callback(.error(NSError(domain: "Weather", code: 1, userInfo: [NSLocalizedDescriptionKey:"Could not parse results from server"])))
-                }
-            case .error(let error):
-                callback(.error(error))
+            switch $0 {
+                case .success(let json):
+                    if let weather = Weather(with: json,start: start,end: end) {
+                        callback(.success(weather))
+                    } else {
+                        callback(.error(NSError(domain: "Weather", code: 1, userInfo: [NSLocalizedDescriptionKey:"Could not parse results from server"])))
+                    }
+                case .error(let error):
+                    callback(.error(error))
             }
         }
     }
+
 }
