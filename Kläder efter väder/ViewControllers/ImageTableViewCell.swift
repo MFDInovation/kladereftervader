@@ -51,10 +51,6 @@ class ImageTableViewCell: UITableViewCell, UIScrollViewDelegate {
         self.manageMode = manageMode
     }
 
-    func configureWithClothing(clothing: Clothing, manageMode: Bool, hideDownArrow: Bool) {
-        configureWithClothing(clothing: clothing, manageMode: manageMode)
-    }
-
     func configureWithImagePath(imagePath: String, manageMode: Bool) {
         let image = UIImage(contentsOfFile: imagePath)
         photoView.image = image

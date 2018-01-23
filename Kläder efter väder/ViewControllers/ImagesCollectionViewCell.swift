@@ -214,8 +214,7 @@ class ImagesCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UIT
 
         if manageMode {
             if indexPath.row == 0 { // first row
-                let hideDownArrow = (data?.imagePaths.count == 0)
-                cell.configureWithClothing(clothing: (data?.clothing)!, manageMode: manageMode, hideDownArrow: hideDownArrow)
+                cell.configureWithClothing(clothing: (data?.clothing)!, manageMode: manageMode)
             } else {
                 cell.configureWithImagePath(imagePath: (data?.imagePaths[indexPath.row-1])!, manageMode: manageMode)
                 cell.delegate = self
