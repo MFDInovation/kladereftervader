@@ -44,7 +44,7 @@ struct Weather {
                 let parameters = weather["parameters"].array,
                 let temperature = Weather.getValueForSymbol(json: parameters, name: "t").double,
                 let rainfall = Weather.getValueForSymbol(json: parameters, name: "pmax").double,
-                let symbolInteger = Weather.getValueForSymbol(json: parameters, name: "Wsymb").num,
+                let symbolInteger = Weather.getValueForSymbol(json: parameters, name: "Wsymb2").num,
                 let windSpeed = Weather.getValueForSymbol(json: parameters, name: "ws").double,
                 let symbol = WeatherSymbol.create(rawValue: symbolInteger){
                 
@@ -82,7 +82,7 @@ class SMHIAPI {
     func  weatherUrl(location: CLLocation) -> URL? {
         let lon = String(format:"%.3f", location.coordinate.longitude)
         let lat = String(format:"%.3f", location.coordinate.latitude)
-        let tmp = URL(string: "http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/\(lon)/lat/\(lat)/data.json")
+        let tmp = URL(string: "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/\(lon)/lat/\(lat)/data.json")
         return tmp
     }
 
