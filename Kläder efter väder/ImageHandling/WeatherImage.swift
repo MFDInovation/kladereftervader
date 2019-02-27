@@ -53,6 +53,7 @@ enum WeatherSymbol {
     
     
     static func create(rawValue: Int, season:Season) -> WeatherSymbol? {
+        // For now, we return just one single value in the cases where the API has different levels of the same weather type
         switch rawValue {
             case 1: return .ClearSky(season: season)
             case 2: return .NearlyclearSky(season: season)
@@ -61,14 +62,14 @@ enum WeatherSymbol {
             case 5: return .CloudySky(season: season)
             case 6: return .Overcast(season: season)
             case 7: return .Fog(season: season)
-            case 8: return .Rainshowers(season: season)
-            case 9: return .Thunderstorm(season: season)
-            case 10: return .Lightsleet(season: season)
-            case 11: return .Snowshowers(season: season)
-            case 12: return .Rain(season: season)
-            case 13: return .Thunder(season: season)
-            case 14: return .Sleet(season: season)
-            case 15: return .Snowfall(season: season)
+            case 8, 9, 10: return .Rainshowers(season: season)
+            case 11: return .Thunderstorm(season: season)
+            case 12, 13, 14: return .Lightsleet(season: season)
+            case 15, 16, 17: return .Snowshowers(season: season)
+            case 18, 19, 20: return .Rain(season: season)
+            case 21: return .Thunder(season: season)
+            case 22, 23, 24: return .Sleet(season: season)
+            case 25, 26, 27: return .Snowfall(season: season)
             default: return nil
         }
     }
